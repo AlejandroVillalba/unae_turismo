@@ -16,6 +16,7 @@
 
 @section('js')
     <script> 
-        Swal.fire('Bienvenido!')
+    // prueba de alertas
+        Swal.fire('Bienvenido {{ Auth::user()->name }} te haz conectado con exito')
     </script>
 @stop
