@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Perfil')
+@section('title', 'Perfil de usuario')
 @section('content')
 
 <x-app-layout>
