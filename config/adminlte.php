@@ -303,13 +303,13 @@ return [
                 ],
             ],
         ],
-        'Chartjs' => [
+        'Bootstrap' => [
             'active' => false,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js',
+                    'asset' => true,
+                    'location' => 'vendor\bootstrap\js\bootstrap.min.js',
                 ],
             ],
         ],
@@ -318,23 +318,23 @@ return [
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
+                    'asset' => true,
+                    'location' => 'vendor\sweetalert2\sweetalert2.all.min.js',
                 ],
             ],
         ],
-        'Pace' => [
+        'Daterangepicker' => [
             'active' => false,
             'files' => [
                 [
                     'type' => 'css',
-                    'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-center-radar.min.css',
+                    'asset' => true,
+                    'location' => 'vendor\daterangepicker\daterangepicker.css',
                 ],
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
+                    'asset' => true,
+                    'location' => 'vendor\daterangepicker\daterangepicker.js',
                 ],
             ],
         ],
