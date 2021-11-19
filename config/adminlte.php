@@ -223,12 +223,20 @@ return [
             'icon' => 'fas fa-home',
         ],      
         [
+           
+            
             'text' => 'Iniciar Sesión',
             'url'  => 'login',
             'icon' => 'fas fa-fw fa-user',
             'topnav_right' => true,
+            
 
         ],
+        [
+            'type'         => 'darkmode-widget',
+            'topnav_right' => true, // Or "topnav => true" to place on the left.
+            'color_enabled' => true,
+        ]
         
 
     ],
