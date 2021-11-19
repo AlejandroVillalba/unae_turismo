@@ -8,23 +8,35 @@
 @stop
 
 @section('content')
-    <p>vista de inicio</p>
-    <div class="form-group">
-        <label>Rango de fechas:</label>
 
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">
-              <i class="far fa-calendar-alt"></i>
-            </span>
-          </div>
-          <input type="text" name="daterange" class="form-control float-right" value="11/19/2021 - 11/20/2021" />
-        </div>
+  <div class="card card-outline card-primary">
+    <div class="card-header">
+      <h3 class="card-title">Rango de fechas:</h3>
     </div>
+    <div class="form-row">
+      <div class="card-body">
+        <div class="col-3">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">
+                <i class="far fa-calendar-alt"></i>
+              </span>
+            </div>
+              <input type="text" name="daterange" class="form-control " value="11/19/2021 - 11/20/2021" />
+          </div>
+        </div>
+      </div><!-- /.card-body -->
+    </div><!-- /.form row -->
+    <div class="card-footer">
+      The footer of the card
+    </div>
+  </div>
 
 @stop
 
 @section('footer')
+  <strong>Copyright © 2021-2021 <a href="https://www.unae.edu.py/tv/">UNAE</a>.</strong> Reservados todos los derechos.
+  <div class="float-right d-none d-sm-inline">v1.0</div>
   @unless (Auth::check()) No has iniciado sesión. <a href="{{ route('login') }}" >Iniciar Sesión</a> @endunless
 @endsection
 

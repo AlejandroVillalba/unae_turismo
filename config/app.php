@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Unae-Turismo'),
 
     /*
     |--------------------------------------------------------------------------
@@ -80,20 +80,20 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
     |--------------------------------------------------------------------------
     |
-    | The fallback locale determines the locale to use when the current one
-    | is not available. You may change the value to correspond to any of
-    | the language folders that are provided through your application.
+    | La configuración regional de Fallback determina la localidad de usar cuando la actual
+    |no está disponible.Puede cambiar el valor para corresponder a cualquiera de
+    |Las carpetas de lenguaje que se proporcionan a través de su solicitud.
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
