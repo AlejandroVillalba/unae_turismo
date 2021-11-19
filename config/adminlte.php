@@ -222,16 +222,12 @@ return [
             'url'  => '/',
             'icon' => 'fas fa-home',
         ],      
-        [
-           
-            
-            'text' => 'Iniciar Sesión',
-            'url'  => 'login',
-            'icon' => 'fas fa-fw fa-user',
-            'topnav_right' => true,
-            
-
-        ],
+        // [
+        //     'text' => 'Iniciar Sesión',
+        //     'url'  => 'login',
+        //     'icon' => 'fas fa-fw fa-user',
+        //     'topnav_right' => true,
+        // ],
         [
             'type'         => 'darkmode-widget',
             'topnav_right' => true, // Or "topnav => true" to place on the left.
@@ -311,18 +307,8 @@ return [
                 ],
             ],
         ],
-        'Bootstrap' => [
-            'active' => false,
-            'files' => [
-                [
-                    'type' => 'js',
-                    'asset' => true,
-                    'location' => 'vendor\bootstrap\js\bootstrap.min.js',
-                ],
-            ],
-        ],
         'Sweetalert2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
@@ -331,18 +317,23 @@ return [
                 ],
             ],
         ],
-        'Daterangepicker' => [
+        'DateRangePicker' => [
             'active' => false,
             'files' => [
                 [
-                    'type' => 'css',
+                    'type' => 'js',
                     'asset' => true,
-                    'location' => 'vendor\daterangepicker\daterangepicker.css',
+                    'location' => 'vendor\moment\moment.min.js',
                 ],
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => 'vendor\daterangepicker\daterangepicker.js',
+                    'location' => 'vendor/daterangepicker/daterangepicker.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/daterangepicker/daterangepicker.css',
                 ],
             ],
         ],

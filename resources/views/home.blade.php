@@ -1,5 +1,6 @@
 @extends('adminlte::page')
-
+{{-- activa el plugins DateRangePicker solo en esta sección --}}
+@section('plugins.DateRangePicker', true) 
 @section('title', 'Home')
 
 @section('content_header')
@@ -19,26 +20,26 @@
           </div>
           <input type="text" name="daterange" class="form-control float-right" value="11/19/2021 - 11/20/2021" />
         </div>
-        <!-- /.input group -->
     </div>
-    
+
 @stop
 
+@section('footer')
+  @unless (Auth::check()) No has iniciado sesión. <a href="{{ route('login') }}" >Iniciar Sesión</a> @endunless
+@endsection
+
 @section('css')
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  
 @stop
 
 @section('js')
-<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<script>
-    $(function() {
-      $('input[name="daterange"]').daterangepicker({
-        opens: 'left'
-      }, function(start, end, label) {
-        console.log("Se realizó una nueva selección de fecha.: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+  <script>
+      $(function() {
+        $('input[name="daterange"]').daterangepicker({
+          opens: 'center'
+        }, function(start, end, label) {
+          console.log("Se realizó una nueva selección de fecha.: " + start.format('DD-MM-YYYY') + ' to ' + end.format('DD-MM-YYYY'));
+        });
       });
-    });
-    </script>
+  </script>
 @stop
