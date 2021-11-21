@@ -5,7 +5,7 @@
 
 @section('content_header')
     <h1>Inicio</h1>
-@stop
+@stop 
 
 @section('content')
 

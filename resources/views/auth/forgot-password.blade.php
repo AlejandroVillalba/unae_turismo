@@ -4,31 +4,34 @@
             <x-jet-authentication-card-logo />
         </x-slot>
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('¿Olvidaste tu contraseña? No hay problema. Solo háganos saber su dirección de correo electrónico y le enviaremos un correo electrónico con un enlace de restablecimiento de contraseña que le permitirá elegir una nueva.') }}
+        <div class="card-body">
+
+            <div class="mb-3">
+                {{ __('¿Olvidaste tu contraseña? No hay problema. Solo háganos saber su dirección de correo electrónico y le enviaremos un correo electrónico con un enlace de restablecimiento de contraseña que le permitirá elegir una nueva.') }}
+            </div>
+
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
+
+            <x-jet-validation-errors class="mb-3" />
+
+            <form method="POST" action="/forgot-password">
+                @csrf
+
+                <div class="mb-3">
+                    <x-jet-label value="Correo electrónico" />
+                    <x-jet-input type="email" name="email" :value="old('email')" required autofocus />
+                </div>
+
+                <div class="d-flex justify-content-end mt-4">
+                    <x-jet-button>
+                        {{ __('Correo electrónico contraseña restablecer enlace') }}
+                    </x-jet-button>
+                </div>
+            </form>
         </div>
-
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
-        @endif
-
-        <x-jet-validation-errors class="mb-4" />
-
-        <form method="POST" action="{{ route('password.email') }}">
-            @csrf
-
-            <div class="block">
-                <x-jet-label for="email" value="{{ __('Correo electrónico') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <x-jet-button>
-                    {{ __('Enviar') }}
-                </x-jet-button>
-            </div>
-        </form>
     </x-jet-authentication-card>
 </x-guest-layout>
