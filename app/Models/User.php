@@ -27,7 +27,13 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+    static $rules = [
+		'name' => 'required',
+		'email' => 'required',
+        'password' => 'required',
+    ];
 
+    protected $perPage = 20;
    
     protected $hidden = [
         'password',
@@ -44,6 +50,12 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function setPasswordAttribute($password){
+        $this->attributes['password'] = bcrypt($password);
+    }
+
+
     public function adminlte_image(){
 
         return 'https://picsum.photos/300/300' ;

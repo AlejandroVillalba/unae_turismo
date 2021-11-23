@@ -221,7 +221,17 @@ return [
             'text' => 'Inicio',
             'url'  => '/',
             'icon' => 'fas fa-home',
-        ],      
+        ],
+        [
+            'text' => 'Usuarios',
+            'url'  => 'users',
+            'icon' => 'fas fa-user',
+        ],
+        [
+            'text' => 'Alojamientos',
+            'url'  => 'alojamientos',
+            'icon' => 'fas fa-hotel',
+        ],       
         // [
         //     'text' => 'Iniciar Sesión',
         //     'url'  => 'login',
