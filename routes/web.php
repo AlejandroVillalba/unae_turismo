@@ -1,10 +1,13 @@
 <?php
 
+
+use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\AlojamientoController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
 
 
 
@@ -16,3 +19,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardCon
 Route::resource('alojamientos', AlojamientoController::class);
 
 Route::resource('users', UserController::class);
+Route::resource('roles', RoleController::class);
