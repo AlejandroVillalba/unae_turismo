@@ -1,10 +1,11 @@
 @extends('adminlte::page')
 {{-- activa el plugins DateRangePicker solo en esta sección --}}
-@section('plugins.DateRangePicker', true) 
-@section('title', 'Home')
+  @section('plugins.DateRangePicker', true) 
+@section('title', 'Inicio')
 
 @section('content_header')
 <div class="shadow p-3 mb-5 bg-white rounded"><h1>Inicio</h1></div>
+<h1>Inicio</h1>
 @stop 
 
 @section('content')
@@ -107,8 +108,7 @@
   <strong>Copyright © 2021-2021 <a href="https://www.unae.edu.py/tv/">UNAE</a>.</strong> Reservados todos los derechos.
   <div class="float-right d-none d-sm-inline">v1.0</div>
   @unless (Auth::check()) No has iniciado sesión.
-  <a href="{{ route('login') }}" >Iniciar Sesión</a>/
-  <a href="{{ route('register') }}" >Registrarse</a> 
+  <a href="{{ route('login') }}" >Iniciar Sesión</a>
   @endunless
 @endsection
 

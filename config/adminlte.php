@@ -106,8 +106,8 @@ return [
     'classes_brand' => '',
     'classes_brand_text' => '',
     'classes_content_wrapper' => '',
-    'classes_content_header' => 'container',
-    'classes_content' => 'container',
+    'classes_content_header' => '',
+    'classes_content' => '',
     'classes_sidebar' => 'sidebar-dark-primary elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-primary navbar-dark',
@@ -225,7 +225,14 @@ return [
         [
             'text' => 'Usuarios',
             'url'  => 'users',
-            'icon' => 'fas fa-user',
+            'icon' => 'fas fa-users',
+            'can' => 'users.index',
+        ],
+        [
+            'text' => 'Roles',
+            'url'  => 'roles',
+            'icon' => 'fas fa-user-cog fa-fw',
+            'can' => 'users.index',
         ],
         [
             'text' => 'Alojamientos',
@@ -233,10 +240,11 @@ return [
             'icon' => 'fas fa-hotel',
         ],       
         // [
-        //     'text' => 'Iniciar Sesión',
-        //     'url'  => 'login',
-        //     'icon' => 'fas fa-fw fa-user',
-        //     'topnav_right' => true,
+        //      'text' => 'Iniciar Sesión',
+        //      'url'  => 'login',
+        //      'icon' => 'fas fa-fw fa-user',
+        //      'topnav_right' => true,
+        //      'can' => 'home',
         // ],
         [
             'type'         => 'darkmode-widget',

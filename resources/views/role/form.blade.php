@@ -11,9 +11,19 @@
             {{ Form::text('guard_name', $role->guard_name, ['class' => 'form-control' . ($errors->has('guard_name') ? ' is-invalid' : ''), 'placeholder' => 'Guard Name']) }}
             {!! $errors->first('guard_name', '<div class="invalid-feedback">:message</p>') !!}
         </div>
-
+        <h2 class="h3">Lista de Permisos:</h2>
+       
+        @foreach ($permissions as $permission)
+            <div class="form-group form-check">
+                <label>
+                    {!! Form::checkbox('permission[]', $permission->id, null, ['class' => 'form-check-input']) !!}
+                    {{ $permission->description }}
+                </label>
+            </div>
+        @endforeach
+        {!! Form::close() !!}
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Enviar</button>
     </div>
 </div>

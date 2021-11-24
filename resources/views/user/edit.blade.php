@@ -5,6 +5,12 @@
 @endsection
 
 @section('content')
+    @if (session('roles'))
+    <div class="alert alert-succes">
+        <strong>{{ session('roles') }}</strong>
+    </div>
+        
+    @endif
     <section class="content container-fluid">
         <div class="">
             <div class="col-md-12">
@@ -24,6 +30,7 @@
                             
 
                         </form>
+
                     </div>
                 </div>
             </div>

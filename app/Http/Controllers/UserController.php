@@ -5,17 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-/**
- * Class UserController
- * @package App\Http\Controllers
- */
+use Spatie\Permission\Models\Role;
+
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        // protecion de url can:nombreDelPersimo especificamos a cual metodo queremos que se aplique
+        $this->middleware('can:users.index')->only('index'); 
+        $this->middleware('can:users.edit')->only('edit', 'update');
+    }
     public function index()
     {
         $users = User::paginate();
@@ -53,20 +52,24 @@ class UserController extends Controller
    
     public function edit($id)
     {
+        $roles = Role::all();
         $user = User::find($id);
 
-        return view('user.edit', compact('user'));
+        return view('user.edit', compact('user', 'roles'));
     }
 
    
     public function update(Request $request, User $user)
     {
         request()->validate(User::$rules);
-
+        $user->roles()->sync($request->roles); //asignamos el rol
         $user->update($request->all());
         // ver editar contraseña
         return redirect()->route('users.index')
-            ->with('success', 'User updated successfully');
+            ->with(
+            'success', 'User updated successfully', 
+            'roles', 'Se asigno los roles correctamente'
+        );
     }
 
 

@@ -1,9 +1,10 @@
 @extends('adminlte::page')
 
-@section('template_title')
-    Alojamiento
-@endsection
+@section('title', 'Alojamientos')
 
+@section('content_header')
+    <div class="shadow p-3 mb-5 bg-white rounded"><h1>Alojamientos</h1></div>
+@stop
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -11,14 +12,9 @@
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-
-                            <span id="card_title">
-                                {{ __('Alojamiento') }}
-                            </span>
-
                              <div class="float-right">
                                 <a href="{{ route('alojamientos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Crear nuevo') }}
                                 </a>
                               </div>
                         </div>
@@ -34,9 +30,9 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
+                                        <th>N°</th>
                                         
-										<th>Name</th>
+										<th>Nombre del Alojamiento</th>
 
                                         <th></th>
                                     </tr>
