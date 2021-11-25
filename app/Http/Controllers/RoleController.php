@@ -34,10 +34,10 @@ class RoleController extends Controller
             'name' => 'required'
         ]);
 
-        $roles = Role::create($request->all());
+        $roles = Role::create($request->only('name'));
 
         $roles->permissions()->sync($request->permissions);
-        dd($roles);
+        
         return redirect()->route('roles.index')
             ->with('success', 'Role created successfully.');
     }
