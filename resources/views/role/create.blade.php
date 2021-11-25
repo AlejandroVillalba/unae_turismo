@@ -21,11 +21,7 @@
 
                             @include('role.form')
 
-                            @error('name')
-                                <small class="text-danger">
-                                    {{$message}}
-                                </small>
-                            @enderror
+                          
                         </form>
                     </div>
                 </div>

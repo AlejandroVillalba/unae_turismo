@@ -34,26 +34,26 @@ class RoleController extends Controller
             'name' => 'required'
         ]);
 
-        $roles = Role::create($request->only('name'));
+        $role = Role::create($request->only('name'));
 
-        $roles->permissions()->sync($request->permissions);
+        $role->permissions()->sync($request->permissions);
         
         return redirect()->route('roles.index')
             ->with('success', 'Role created successfully.');
     }
 
   
-    public function show($id)
+    public function show(Role $role)
     {
-        $role = Role::find($id);
+        
 
         return view('role.show', compact('role'));
     }
 
 
-    public function edit($id)
+    public function edit(Role $role)
     {
-        $role = Role::find($id);
+        
         $permissions = Permission::all();
 
         return view('role.edit', compact('role', 'permissions'));
@@ -65,16 +65,18 @@ class RoleController extends Controller
             'name' => 'required'
         ]);
 
+        $role->permissions()->sync($request->permissions);
         $role->update($request->all());
-
+        
+    
         return redirect()->route('roles.index')
             ->with('success', 'Role updated successfully');
     }
 
 
-    public function destroy($id)
+    public function destroy(Role $role)
     {
-        $role = Role::find($id)->delete();
+        $role->delete();
 
         return redirect()->route('roles.index')
             ->with('success', 'Role deleted successfully');

@@ -20,8 +20,9 @@
                             {{ method_field('PATCH') }}
                             @csrf
 
+                            {!! Form::model($role, ['route' => ['roles.update', $role], 'method' => 'put']) !!}
                             @include('role.form')
-
+                            {!! Form::close() !!}
                         </form>
                     </div>
                 </div>
