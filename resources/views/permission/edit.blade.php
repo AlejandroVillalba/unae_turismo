@@ -1,8 +1,9 @@
 @extends('adminlte::page')
 
-@section('template_title')
-    Update Permission
-@endsection
+@section('title', 'Editar Permiso')
+@section('content_header')
+    <div class="shadow p-3 mb-5 bg-white rounded"><h1>Editar Permiso</h1></div>
+@stop
 
 @section('content')
     <section class="content container-fluid">
@@ -11,9 +12,9 @@
 
                 @includeif('partials.errors')
 
-                <div class="card card-default">
+                <div class="card card-outline card-info">
                     <div class="card-header">
-                        <span class="card-title">Update Permission</span>
+                        <span class="card-title">Actualizar permiso: {{ $permission->name}}</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('permissions.update', $permission->id) }}"  role="form" enctype="multipart/form-data">

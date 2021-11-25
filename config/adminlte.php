@@ -244,6 +244,7 @@ return [
             'text' => 'Alojamientos',
             'url'  => 'alojamientos',
             'icon' => 'fas fa-hotel',
+            'topnav' => true,
         ],       
         // [
         //      'text' => 'Iniciar Sesión',

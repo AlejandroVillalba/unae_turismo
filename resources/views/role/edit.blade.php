@@ -1,8 +1,10 @@
 @extends('adminlte::page')
 
-@section('template_title')
-    Update Role
-@endsection
+@section('title', 'Editar Rol')
+@section('content_header')
+    <div class="shadow p-3 mb-5 bg-white rounded"><h1>Editar Rol</h1></div>
+@stop
+
 
 @section('content')
     <section class="content container-fluid">
@@ -11,9 +13,9 @@
 
                 @includeif('partials.errors')
 
-                <div class="card card-default">
+                <div class="card card-outline card-success">
                     <div class="card-header">
-                        <span class="card-title">Update Role</span>
+                        <span class="card-title">Actualizar Rol: {{$role->name}}</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('roles.update', $role->id) }}"  role="form" enctype="multipart/form-data">

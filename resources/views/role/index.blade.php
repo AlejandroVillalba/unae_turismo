@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Role')
+@section('title', 'Roles')
 @section('content_header')
     <div class="shadow p-3 mb-5 bg-white rounded"><h1>Lista de roles</h1></div>
 @stop
@@ -8,12 +8,12 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <div class="card">
+                <div class="card card-dark">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                              <div class="float-right">
                                 <a href="{{ route('roles.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Crear nuevo') }}
+                                  {{ __('Crear un nuevo rol') }}
                                 </a>
                               </div>
                         </div>
@@ -30,10 +30,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>N°</th>
-                                        
 										<th>Nombre</th>
-										<th>Guardia Nombre</th>
-
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -43,8 +40,6 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $role->name }}</td>
-											<td>{{ $role->guard_name }}</td>
-
                                             <td>
                                                 <form action="{{ route('roles.destroy',$role->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('roles.show',$role->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>

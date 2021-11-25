@@ -1,8 +1,9 @@
 @extends('adminlte::page')
 
-@section('template_title')
-    Create Permission
-@endsection
+@section('title', 'Crear Permiso')
+@section('content_header')
+    <div class="shadow p-3 mb-5 bg-white rounded"><h1>Crear un nuevo Permiso</h1></div>
+@stop
 
 @section('content')
     <section class="content container-fluid">
@@ -11,9 +12,9 @@
 
                 @includeif('partials.errors')
 
-                <div class="card card-default">
+                <div class="card card-outline card-primary">
                     <div class="card-header">
-                        <span class="card-title">Create Permission</span>
+                        <span class="card-title">Crear permiso:</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('permissions.store') }}"  role="form" enctype="multipart/form-data">

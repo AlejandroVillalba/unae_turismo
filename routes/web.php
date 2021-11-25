@@ -21,4 +21,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardCon
 Route::resource('alojamientos', AlojamientoController::class);
 Route::resource('users', UserController::class);
 Route::resource('roles', RoleController::class);
-Route::resource('permissions', PermissionController::class);
+Route::resource('permissions', PermissionController::class)->except('show');

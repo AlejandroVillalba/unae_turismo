@@ -2,23 +2,19 @@
     <div class="box-body">
         
         <div class="form-group">
-            {{ Form::label('name') }}
-            {{ Form::text('name', $permission->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Name']) }}
+            {{ Form::label('name', 'Nombre del permiso') }}
+            {{ Form::text('name', $permission->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Nombre del permiso']) }}
             {!! $errors->first('name', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('description') }}
-            {{ Form::text('description', $permission->description, ['class' => 'form-control' . ($errors->has('description') ? ' is-invalid' : ''), 'placeholder' => 'Description']) }}
+            {{ Form::label('description', 'Descripción del permiso') }}
+            {{ Form::text('description', $permission->description, ['class' => 'form-control' . ($errors->has('description') ? ' is-invalid' : ''), 'placeholder' => 'Descripción del permiso']) }}
             {!! $errors->first('description', '<div class="invalid-feedback">:message</p>') !!}
         </div>
-        <div class="form-group">
-            {{ Form::label('guard_name') }}
-            {{ Form::text('guard_name', $permission->guard_name, ['class' => 'form-control' . ($errors->has('guard_name') ? ' is-invalid' : ''), 'placeholder' => 'Guard Name']) }}
-            {!! $errors->first('guard_name', '<div class="invalid-feedback">:message</p>') !!}
-        </div>
+
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Enviar</button>
     </div>
 </div>

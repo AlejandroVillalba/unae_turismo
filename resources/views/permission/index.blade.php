@@ -1,8 +1,8 @@
 @extends('adminlte::page')
-
-@section('template_title')
-    Permission
-@endsection
+@section('title', 'Permisos')
+@section('content_header')
+    <div class="shadow p-3 mb-5 bg-white rounded"><h1>Lista de Permisos</h1></div>
+@stop
 
 @section('content')
     <div class="container-fluid">
@@ -12,13 +12,9 @@
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            <span id="card_title">
-                                {{ __('Permission') }}
-                            </span>
-
                              <div class="float-right">
                                 <a href="{{ route('permissions.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Crear nuevo permiso') }}
                                 </a>
                               </div>
                         </div>
@@ -34,12 +30,9 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-                                        
-										<th>Name</th>
-										<th>Description</th>
-										<th>Guard Name</th>
-
+                                        <th>N°</th>
+										<th>Nombre del permiso</th>
+										<th>Descripción del permiso</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -47,18 +40,14 @@
                                     @foreach ($permissions as $permission)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
 											<td>{{ $permission->name }}</td>
 											<td>{{ $permission->description }}</td>
-											<td>{{ $permission->guard_name }}</td>
-
                                             <td>
                                                 <form action="{{ route('permissions.destroy',$permission->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('permissions.show',$permission->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('permissions.edit',$permission->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-info" href="{{ route('permissions.edit',$permission->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Borrar</button>
                                                 </form>
                                             </td>
                                         </tr>
