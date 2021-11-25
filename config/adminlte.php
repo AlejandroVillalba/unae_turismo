@@ -235,6 +235,12 @@ return [
             'can' => 'users.index',
         ],
         [
+            'text' => 'Permisos',
+            'url'  => 'permissions',
+            'icon' => 'fas fa-user-cog fa-fw',
+            'can' => 'users.index',
+        ],
+        [
             'text' => 'Alojamientos',
             'url'  => 'alojamientos',
             'icon' => 'fas fa-hotel',
