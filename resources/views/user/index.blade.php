@@ -34,6 +34,7 @@
                                         
 										<th>Nombre</th>
 										<th>Correo electrónico</th>
+                                        <th>Rol</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -44,6 +45,7 @@
                                             
 											<td>{{ $user->name }}</td>
 											<td>{{ $user->email }}</td>
+                                            <td>{{ implode(', ', $user->roles()->get()->pluck('name')->toArray()) }}</td>
                                             <td>
                                                 <form action="{{ route('users.destroy',$user->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('users.show',$user->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>

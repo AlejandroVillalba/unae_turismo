@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
-    
+    protected $perPage = 20;
     public function index()
     {
         $roles = Role::paginate();
@@ -30,10 +30,14 @@ class RoleController extends Controller
    
     public function store(Request $request)
     {
-        request()->validate(Role::$rules);
+        $request->validate([
+            'name' => 'required'
+        ]);
 
-        $role = Role::create($request->all());
+        $roles = Role::create($request->all());
 
+        $roles->permissions()->sync($request->permissions);
+        dd($roles);
         return redirect()->route('roles.index')
             ->with('success', 'Role created successfully.');
     }
@@ -50,13 +54,16 @@ class RoleController extends Controller
     public function edit($id)
     {
         $role = Role::find($id);
+        $permissions = Permission::all();
 
-        return view('role.edit', compact('role'));
+        return view('role.edit', compact('role', 'permissions'));
     }
 
     public function update(Request $request, Role $role)
     {
-        request()->validate(Role::$rules);
+         $request->validate([
+            'name' => 'required'
+        ]);
 
         $role->update($request->all());
 

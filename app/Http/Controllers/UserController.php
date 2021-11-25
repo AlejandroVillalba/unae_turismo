@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        // protecion de url can:nombreDelPersimo especificamos a cual metodo queremos que se aplique
+        // protecion de url can:nombreDelPermiso especificamos a cual metodo queremos que se aplique
         $this->middleware('can:users.index')->only('index'); 
         $this->middleware('can:users.edit')->only('edit', 'update');
     }
@@ -27,7 +27,8 @@ class UserController extends Controller
     public function create()
     {
         $user = new User();
-        return view('user.create', compact('user'));
+        $roles = Role::all();
+        return view('user.create', compact('user', 'roles'));
     }
 
    
@@ -36,7 +37,8 @@ class UserController extends Controller
         request()->validate(User::$rules);
 
         $user = User::create($request->all());
-        
+        $user->roles()->sync($request->roles); //asignamos el rol
+
         return redirect()->route('users.index')
             ->with('success', 'Usuario creado con éxito.');
     }
@@ -45,16 +47,16 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-
+ 
         return view('user.show', compact('user'));
     }
 
    
     public function edit($id)
     {
-        $roles = Role::all();
         $user = User::find($id);
-
+        $roles = Role::all();
+        
         return view('user.edit', compact('user', 'roles'));
     }
 
@@ -62,8 +64,11 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         request()->validate(User::$rules);
+
         $user->roles()->sync($request->roles); //asignamos el rol
         $user->update($request->all());
+        
+        //dd($user->load('roles'));
         // ver editar contraseña
         return redirect()->route('users.index')
             ->with(
