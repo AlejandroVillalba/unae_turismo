@@ -14,7 +14,7 @@
 
 
     </div>
-    <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Enviar</button>
+    <div class="float-left">
+        <button type="submit" class="btn btn-block bg-gradient-primary btn-sm">Enviar</button>
     </div>
 </div>

@@ -12,11 +12,15 @@
 
                 @includeif('partials.errors')
 
-                <div class="card card-outline card-primary">
+                <div class="card bg-gradient-info">
                     <div class="card-header">
-                        <span class="card-title">Crear permiso:</span>
+                        <span class="card-title">Crear permiso de usuarios:</span>
+                        <div class="float-right">
+                            <a class="btn btn-block bg-gradient-primary btn-sm" href="{{ route('permissions.index') }}"> Atrás</a>
+                        </div>
                     </div>
                     <div class="card-body">
+                      
                         <form method="POST" action="{{ route('permissions.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
