@@ -1,23 +1,28 @@
 @extends('adminlte::page')
 
 @section('title', 'Editar Usuario')
+@section('content_header')
+    <div class="shadow p-3 mb-5 bg-white rounded"><h1>Editar Usuario</h1></div>
+@stop
 
 @section('content')
     @if (session('roles'))
-    <div class="alert alert-succes">
-        <strong>{{ session('roles') }}</strong>
-    </div>
-        
+        <div class="alert alert-succes">
+            <strong>{{ session('roles') }}</strong>
+        </div>
     @endif
     <section class="content container-fluid">
-        <div class="">
+        <div class="row">
             <div class="col-md-12">
 
                 @includeif('partials.errors')
 
-                <div class="card card-default">
+                <div class="card bg-gradient-navy">
                     <div class="card-header">
-                        <span class="card-title">Update User</span>
+                        <span class="card-title">Actualizar Usuario: "{{$user->name}}"</span>
+                        <div class="float-right">
+                            <a class="btn btn-block bg-gradient-info btn-sm" href="{{ route('users.index') }}"> Atrás</a>
+                        </div>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('users.update', $user->id) }}"  role="form" enctype="multipart/form-data">
@@ -39,8 +44,8 @@
                                                 </label>
                                             </div>
                                         @endforeach
-                                        <div class="box-footer mt20">
-                                            <button type="submit" class="btn btn-primary">Enviar</button>
+                                        <div class="float-left">
+                                            <button type="submit" class="btn btn-block bg-gradient-info btn-flat">Editar Usuario</button>
                                         </div>
                                     {!! Form::close() !!}
                                 </div>

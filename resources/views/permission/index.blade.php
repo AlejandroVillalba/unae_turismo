@@ -13,7 +13,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                              <div class="float-right">
-                                <a href="{{ route('permissions.create') }}" class="btn btn-block bg-gradient-primary btn-sm"  data-placement="left">
+                                <a href="{{ route('permissions.create') }}" class="btn btn-block bg-gradient-navy btn-flat"  data-placement="left">
                                   {{ __('Crear nuevo permiso') }}
                                 </a>
                               </div>
@@ -44,7 +44,7 @@
 											<td>{{ $permission->description }}</td>
                                             <td>
                                                 <form action="{{ route('permissions.destroy',$permission->id) }}" method="POST">
-                                                    <a class="btn bg-gradient-info btn-sm" href="{{ route('permissions.edit',$permission->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                                    <a class="btn bg-gradient-navy btn-sm" href="{{ route('permissions.edit',$permission->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn bg-gradient-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Borrar</button>

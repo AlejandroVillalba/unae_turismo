@@ -2,7 +2,7 @@
     <div class="box-body">
         
         <div class="form-group">
-            {{ Form::label('name') }}
+            {{ Form::label('name', 'Nombre del Rol:') }}
             {{ Form::text('name', $role->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Name']) }}
             {!! $errors->first('name', '<div class="invalid-feedback">:message</p>') !!}
         </div>
@@ -18,7 +18,7 @@
         @endforeach
         {!! Form::close() !!}
     </div>
-    <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Enviar</button>
+    <div class="float-left">
+        <button type="submit" class="btn btn-block bg-gradient-purple btn-flat">Enviar</button>
     </div>
 </div>

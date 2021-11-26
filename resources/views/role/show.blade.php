@@ -2,33 +2,34 @@
 
 @section('title', 'Ver Rol')
 @section('content_header')
-    <div class="shadow p-3 mb-5 bg-white rounded"><h1>Detalle del Rol {{$role->name}}</h1></div>
+    <div class="shadow p-3 mb-5 bg-white rounded"><h1>Detalle del Rol "{{$role->name}}"</h1></div>
 @stop
 @section('content')
     <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
+                <div class="card bg-gradient-olive">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">{{$role->name}}</span>
+                            <span class="card-title"><h2 class="h4">{{$role->name}}</h2></span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('roles.index') }}"> Back</a>
+                            <a class="btn btn-block bg-gradient-purple btn-sm" href="{{ route('roles.index') }}">Atrás</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Name:</strong>
-                            {{ $role->name }}
+                            <strong>Nombre del Rol:</strong> "{{ $role->name }}"
                         </div>
+                        
+                        <h2 class="h3">Permisos Habilitados:</h2>
                         @foreach ($permissions as $permission)
                         <div class="form-group">
-                            <label>
+                            <li>
                                 {{ $permission->description }}
-                            </label>
+                            </li>
                         </div>
                         @endforeach
 

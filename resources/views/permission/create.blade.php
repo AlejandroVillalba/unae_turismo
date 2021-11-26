@@ -16,7 +16,7 @@
                     <div class="card-header">
                         <span class="card-title">Crear permiso de usuarios:</span>
                         <div class="float-right">
-                            <a class="btn btn-block bg-gradient-primary btn-sm" href="{{ route('permissions.index') }}"> Atrás</a>
+                            <a class="btn btn-block bg-gradient-navy btn-sm" href="{{ route('permissions.index') }}"> Atrás</a>
                         </div>
                     </div>
                     <div class="card-body">

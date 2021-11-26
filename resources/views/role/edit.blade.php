@@ -13,9 +13,12 @@
 
                 @includeif('partials.errors')
 
-                <div class="card card-outline card-success">
+                <div class="card bg-gradient-olive">
                     <div class="card-header">
-                        <span class="card-title">Actualizar Rol: {{$role->name}}</span>
+                        <span class="card-title">Actualizar Rol: "{{$role->name}}"</span>
+                        <div class="float-right">
+                            <a class="btn btn-block bg-gradient-purple btn-sm" href="{{ route('roles.index') }}"> Atrás</a>
+                        </div>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('roles.update', $role->id) }}"  role="form" enctype="multipart/form-data">

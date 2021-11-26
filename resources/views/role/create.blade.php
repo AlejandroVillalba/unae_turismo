@@ -12,9 +12,12 @@
 
                 @includeif('partials.errors')
 
-                <div class="card card-outline card-primary">
+                <div class="card bg-gradient-olive">
                     <div class="card-header">
                         <span class="card-title">Crear rol de usuario</span>
+                        <div class="float-right">
+                            <a class="btn btn-block bg-gradient-purple btn-sm" href="{{ route('roles.index') }}"> Atrás</a>
+                        </div>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('roles.store') }}"  role="form" enctype="multipart/form-data">

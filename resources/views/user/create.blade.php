@@ -1,8 +1,9 @@
 @extends('adminlte::page')
 
-@section('template_title')
-    Create User
-@endsection
+@section('title', 'Crear Usuario')
+@section('content_header')
+    <div class="shadow p-3 mb-5 bg-white rounded"><h1>Crear un nuevo Usuario</h1></div>
+@stop
 
 @section('content')
     <section class="content container-fluid">
@@ -11,11 +12,15 @@
 
                 @includeif('partials.errors')
 
-                <div class="card card-default">
+                <div class="card bg-gradient-navy">
                     <div class="card-header">
-                        <span class="card-title">Create User</span>
+                        <span class="card-title">Crear un nuevo Usuario</span>
+                        <div class="float-right">
+                            <a class="btn btn-block bg-gradient-info btn-sm" href="{{ route('users.index') }}"> Atrás</a>
+                        </div>
                     </div>
                     <div class="card-body">
+
                         <form method="POST" action="{{ route('users.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
@@ -34,13 +39,14 @@
                                                 </label>
                                             </div>
                                         @endforeach
-                                        <div class="box-footer mt20">
-                                            <button type="submit" class="btn btn-primary">Enviar</button>
+                                        <div class="float-left">
+                                            <button type="submit" class="btn btn-block bg-gradient-info btn-flat">Crear Usuario</button>
                                         </div>
                                     {!! Form::close() !!}
                                 </div>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>

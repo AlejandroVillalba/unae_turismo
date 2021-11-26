@@ -17,7 +17,7 @@
                         <span class="card-title">Actualizar permiso: {{ $permission->name}}</span>
                     
                         <div class="float-right">
-                            <a class="btn btn-block bg-gradient-primary btn-sm" href="{{ route('permissions.index') }}"> Atrás</a>
+                            <a class="btn btn-block bg-gradient-navy btn-sm" href="{{ route('permissions.index') }}"> Atrás</a>
                         </div>
                     </div>
                     <div class="card-body">

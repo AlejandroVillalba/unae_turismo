@@ -3,7 +3,7 @@
 @section('template_title')
     {{ $user->name ?? 'Show User' }}
 @endsection
-
+                                {{-- Vista desabilitada en la ruta --}}
 @section('content')
     <section class="content container-fluid">
         <div class="row">

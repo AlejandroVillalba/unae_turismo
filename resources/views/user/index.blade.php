@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Usuario')
+@section('title', 'Usuarios')
 
 @section('content_header')
     <div class="shadow p-3 mb-5 bg-white rounded"><h1>Lista de usuarios</h1></div>
@@ -9,11 +9,11 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <div class="card">
+                <div class="card card-navy">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                              <div class="float-right">
-                                <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('users.create') }}" class="btn btn-block bg-gradient-info btn-flat"  data-placement="left">
                                   {{ __('Crear nuevo usuario') }}
                                 </a>
                               </div>
@@ -48,11 +48,11 @@
                                             <td>{{ implode(', ', $user->roles()->get()->pluck('name')->toArray()) }}</td>
                                             <td>
                                                 <form action="{{ route('users.destroy',$user->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('users.show',$user->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('users.edit',$user->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                                    {{-- <a class="btn bg-gradient-navy btn-sm " href="{{ route('users.show',$user->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a> --}}
+                                                    <a class="btn bg-gradient-info btn-sm" href="{{ route('users.edit',$user->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Borrar</button>
+                                                    <button type="submit" class="btn bg-gradient-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Borrar</button>
                                                 </form>
                                             </td>
                                         </tr>
