@@ -17,7 +17,7 @@
       <p class="card-text">Desde cómodas casas de campo hasta departamentos con onda en la ciudad</p>
 
       <div class="form-row">
-
+          {{-- calendario de rango --}}
           <div class="col-sm-3 my-1">
             <div class="input-group">
               <div class="input-group-prepend">
@@ -28,7 +28,7 @@
                 <input type="text" name="daterange" class="form-control " value="" />
             </div>
           </div>
-
+          {{-- /calendario --}}
           <div class="col-sm-3 my-1">
             <div class="input-group">
               <div class="input-group-prepend">
@@ -98,7 +98,7 @@
             </div>
           </div>
       </div><!-- /.form row -->
-      <button type="button" class="btn btn-primary btn-lg btn-block ">Buscar</button>
+      <button type="button" class="btn btn-block bg-gradient-primary btn-lg">Buscar</button>
     </div>
   </div>
 

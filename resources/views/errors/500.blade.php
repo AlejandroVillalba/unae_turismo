@@ -25,20 +25,7 @@
 
           <p>
             Trabajaremos para solucionarlo de inmediato.
-            Mientras tanto, puede <a href="{{ url('dashboard') }}">volver al inicio</a> o intentar utilizar el formulario de búsqueda.
           </p>
-
-          <form class="search-form">
-            <div class="input-group">
-              <input type="text" name="search" class="form-control" placeholder="Buscar">
-
-              <div class="input-group-append">
-                <button type="submit" name="submit" class="btn btn-danger"><i class="fas fa-search"></i>
-                </button>
-              </div>
-            </div>
-            <!-- /.input-group -->
-          </form>
         </div>
       </div>
       <!-- /.error-page -->

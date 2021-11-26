@@ -25,7 +25,7 @@
           <h3><i class="fas fa-exclamation-triangle text-warning"></i> ¡UPS! Página no encontrada.</h3>
           <p>
             No pudimos encontrar la página que buscaba.
-            Mientras tanto, puedes <a href=" {{ url('dashboard') }} ">volver al inicio</a> o intente utilizar el formulario de búsqueda.
+            Mientras tanto, puedes <a href=" {{ url('/') }} ">volver al inicio</a> o intente utilizar el formulario de búsqueda.
           </p>
           <form class="search-form">
             <div class="input-group">
@@ -44,4 +44,13 @@
     </section>
     <!-- /.content -->
   </div>
+@stop
+@section('js')
+<script>
+    Swal.fire({
+      icon: 'warning',
+      title: 'Página no encontrada',
+      text: 'No pudimos encontrar la página que buscaba!',
+})
+</script>
 @stop

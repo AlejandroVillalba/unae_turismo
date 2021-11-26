@@ -9,7 +9,13 @@ use Illuminate\Http\Request;
 class PermissionController extends Controller
 {
     protected $perPage = 20;
-    
+    public function __construct()
+    {
+        // protecion de url can:nombreDelPermiso especificamos a cual metodo queremos que se aplique
+        $this->middleware('can:permissions.index')->only('index'); 
+        $this->middleware('can:permissions.create')->only('create');
+        $this->middleware('can:permissions.edit')->only('edit', 'update');
+    }
     public function index()
     {
         $permissions = Permission::paginate();

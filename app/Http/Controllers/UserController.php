@@ -13,6 +13,7 @@ class UserController extends Controller
     {
         // protecion de url can:nombreDelPermiso especificamos a cual metodo queremos que se aplique
         $this->middleware('can:users.index')->only('index'); 
+        $this->middleware('can:users.create')->only('create');
         $this->middleware('can:users.edit')->only('edit', 'update');
     }
     public function index()

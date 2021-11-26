@@ -16,7 +16,7 @@ use App\Http\Controllers\RoleController;
 //     return view('auth.login');
 // });
 Route::get('/', [HomeController::class, 'home'])->name('home');
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+//Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::resource('alojamientos', AlojamientoController::class);
 

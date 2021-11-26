@@ -10,6 +10,14 @@ use Illuminate\Http\Request;
 class RoleController extends Controller
 {
     protected $perPage = 20;
+    public function __construct()
+    {
+        // protecion de url can:nombreDelPermiso especificamos a cual metodo queremos que se aplique
+        $this->middleware('can:roles.index')->only('index'); 
+        $this->middleware('can:roles.create')->only('create');
+        $this->middleware('can:roles.show')->only('show');
+        $this->middleware('can:roles.edit')->only('edit', 'update');
+    }
     public function index()
     {
         $roles = Role::paginate();
