@@ -83,7 +83,7 @@ return [
     |
     */
 
-    'layout_topnav' => false,
+    'layout_topnav' => true,
     'layout_boxed' => null,
     'layout_fixed_sidebar' => null,
     'layout_fixed_navbar' => null,
@@ -211,19 +211,13 @@ return [
             'search'       => true,
             'text'         => 'Buscar',        // Placeholder for the underlying input.
             'topnav_right' => true,            // Or "topnav => true" to place on the left.
-            'url'          => 'navbar/search', // The url used to submit the data ('#' by default).
-            'method'       => 'post',          // 'get' or 'post' ('get' by default).
-            'input_name'   => 'searchVal',     // Name for the underlying input ('adminlteSearch' by default).
-            'id'           => 'navbarSearch'   // ID attribute for the underlying input (optional).
+            
         ],
         // Sidebar items:
         [
             'type'       => 'sidebar-custom-search',
             'text'       => 'Buscar',         
-            'url'        => 'sidebar/search', // The url used to submit the data ('#' by default).
-            'method'     => 'post',           // 'get' or 'post' ('get' by default).
-            'input_name' => 'searchVal',      // Name for the underlying input ('adminlteSearch' by default).
-            'id'         => 'sidebarSearch'   // ID attribute for the underlying input (optional).
+            
         ],
         [
             'text' => 'Inicio',
@@ -306,44 +300,70 @@ return [
     */
 
     'plugins' => [
+        // habilitado en todas las paginas
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables/js/jquery.dataTables.min.js',
                 ],
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables/js/dataTables.bootstrap4.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
+                    'asset' => true,
+                    'location' => 'vendor/datatables/css/dataTables.bootstrap4.min.css',
                 ],
             ],
         ],
-        // habilitado para su uso => false
-        'Select2' => [
-            'active' => false,
+        // habilitado en todas las paginas botones de exportacion de Datatables
+        'DatatablesPlugins' => [
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => 'vendor/select2/js/select2.full.min.js',
+                    'location' => 'vendor/datatables-plugins/buttons/js/dataTables.buttons.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/buttons/js/buttons.bootstrap4.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/buttons/js/buttons.html5.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/buttons/js/buttons.print.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/jszip/jszip.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/pdfmake/pdfmake.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/pdfmake/vfs_fonts.js',
                 ],
                 [
                     'type' => 'css',
                     'asset' => true,
-                    'location' => 'vendor/select2/css/select2.min.css',
-                ],
-                [
-                    'type' => 'css',
-                    'asset' => true,
-                    'location' => 'vendor/select2-bootstrap4-theme/select2-bootstrap4.min.css',
+                    'location' => 'vendor/datatables-plugins/buttons/css/buttons.bootstrap4.min.css',
                 ],
             ],
         ],
@@ -379,6 +399,39 @@ return [
                 ],
             ],
         ],  
+
+        // habilitado para su uso => false
+        'BsCustomFileInput' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/bs-custom-file-input/bs-custom-file-input.min.js',
+                ],
+            ],
+        ],
+        // habilitado para su uso => false
+        'Select2' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/select2/js/select2.full.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/select2/css/select2.min.css',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/select2-bootstrap4-theme/select2-bootstrap4.min.css',
+                ],
+            ],
+        ],
         // habilitado para su uso => false
         'BootstrapColorpicker' => [
             'active' => false,
@@ -443,18 +496,19 @@ return [
                 ],
             ],
         ],
-        'BootstrapSelect' => [
-            'active' => true,
+        // habilitado para su uso => false
+        'Summernote' => [
+            'active' => false,
             'files' => [
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js',
+                    'location' => 'vendor/summernote/summernote-bs4.min.js',
                 ],
                 [
                     'type' => 'css',
                     'asset' => true,
-                    'location' => 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css',
+                    'location' => 'vendor/summernote/summernote-bs4.min.css',
                 ],
             ],
         ],
