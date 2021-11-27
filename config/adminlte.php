@@ -83,7 +83,7 @@ return [
     |
     */
 
-    'layout_topnav' => true,
+    'layout_topnav' => false,
     'layout_boxed' => null,
     'layout_fixed_sidebar' => null,
     'layout_fixed_navbar' => null,
@@ -108,7 +108,7 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'sidebar-dark-info elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-primary navbar-dark',
     'classes_topnav_nav' => 'navbar-expand',
@@ -208,19 +208,28 @@ return [
     'menu' => [
         // Navbar items:
         [
-            'type'         => 'navbar-search',
-            'text'         => 'Buscar',
-            'topnav_right' => true,
+            'search'       => true,
+            'text'         => 'Buscar',        // Placeholder for the underlying input.
+            'topnav_right' => true,            // Or "topnav => true" to place on the left.
+            'url'          => 'navbar/search', // The url used to submit the data ('#' by default).
+            'method'       => 'post',          // 'get' or 'post' ('get' by default).
+            'input_name'   => 'searchVal',     // Name for the underlying input ('adminlteSearch' by default).
+            'id'           => 'navbarSearch'   // ID attribute for the underlying input (optional).
         ],
         // Sidebar items:
         [
-            'type' => 'sidebar-menu-search',
-            'text' => 'Buscar',
-        ], 
+            'type'       => 'sidebar-custom-search',
+            'text'       => 'Buscar',         
+            'url'        => 'sidebar/search', // The url used to submit the data ('#' by default).
+            'method'     => 'post',           // 'get' or 'post' ('get' by default).
+            'input_name' => 'searchVal',      // Name for the underlying input ('adminlteSearch' by default).
+            'id'         => 'sidebarSearch'   // ID attribute for the underlying input (optional).
+        ],
         [
             'text' => 'Inicio',
             'url'  => '/',
             'icon' => 'fas fa-home',
+            'topnav' => true,
         ],
         [
             'text' => 'Usuarios',
@@ -241,7 +250,7 @@ return [
             'can' => 'users.index',
         ],
         [
-            'text' => 'Alojamientos',
+            'text' => 'Registre su Alojamientos',
             'url'  => 'alojamientos',
             'icon' => 'fas fa-hotel',
             'topnav' => true,
@@ -317,21 +326,28 @@ return [
                 ],
             ],
         ],
+        // habilitado para su uso => false
         'Select2' => [
             'active' => false,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js',
+                    'asset' => true,
+                    'location' => 'vendor/select2/js/select2.full.min.js',
                 ],
                 [
                     'type' => 'css',
-                    'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css',
+                    'asset' => true,
+                    'location' => 'vendor/select2/css/select2.min.css',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/select2-bootstrap4-theme/select2-bootstrap4.min.css',
                 ],
             ],
         ],
+        // habilitado en todas las paginas
         'Sweetalert2' => [
             'active' => true,
             'files' => [
@@ -342,6 +358,7 @@ return [
                 ],
             ],
         ],
+        // habilitado solo por secciones => Home
         'DateRangePicker' => [
             'active' => false,
             'files' => [
@@ -359,6 +376,85 @@ return [
                     'type' => 'css',
                     'asset' => true,
                     'location' => 'vendor/daterangepicker/daterangepicker.css',
+                ],
+            ],
+        ],  
+        // habilitado para su uso => false
+        'BootstrapColorpicker' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css',
+                ],
+            ],
+        ],
+        // habilitado para su uso => false
+        'TempusDominusBs4' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/moment/moment.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css',
+                ],
+            ],
+        ],
+        // habilitado para su uso => false
+        'BootstrapSlider' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/bootstrap-slider/bootstrap-slider.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/bootstrap-slider/css/bootstrap-slider.min.css',
+                ],
+            ],
+        ],
+        // habilitado para su uso => false
+        'BootstrapSwitch' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/bootstrap-switch/js/bootstrap-switch.min.js',
+                ],
+            ],
+        ],
+        'BootstrapSelect' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css',
                 ],
             ],
         ],
