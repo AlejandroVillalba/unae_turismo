@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class CategoriaAlojamiento extends Model
 {
     use HasFactory;
+
+     //relacion uno a mucho
+     public function alojamientos(){
+        return $this->hasMany(Alojamiento::class);
+    }
 }

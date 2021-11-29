@@ -55,6 +55,10 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($password);
     }
 
+    //relacion uno a mucho
+    public function alojamientos(){
+        return $this->hasMany(Alojamiento::class);
+    }
 
     public function adminlte_image(){
 
