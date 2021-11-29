@@ -12,7 +12,7 @@ class ServicioFactory extends Factory
         return [
             'nombre' => $this->faker->sentence,
 
-            'alojamiento_id' => rand(1,2),
+          
         ];
     }
 }

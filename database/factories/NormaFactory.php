@@ -14,7 +14,6 @@ class NormaFactory extends Factory
             'ingreso' => $this->faker->dateTime,
             'salida' => $this->faker->dateTime,
 
-            'habitacion_id' => rand(1,2),
         ];
     }
 }

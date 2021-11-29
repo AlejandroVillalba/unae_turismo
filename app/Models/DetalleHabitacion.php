@@ -9,8 +9,9 @@ class DetalleHabitacion extends Model
 {
     use HasFactory;
 
-    //relacion uno a mucho
-    public function habitacions(){
-        return $this->hasMany(Habitacion::class);
+    // Relacion uno a muchos -> inversa 
+   public function habitacion(){
+    return $this->belongsTo(Habitacion::class);
     }
+
 }

@@ -16,15 +16,11 @@ class CreateNormasTable extends Migration
         Schema::create('normas', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('habitacion_id');
-
             $table->string('nombre');
             $table->dateTime('ingreso');
             $table->dateTime('salida');
             
             $table->timestamps();
-
-            $table->foreign('habitacion_id')->references('id')->on('habitacions');
         });
     }
 

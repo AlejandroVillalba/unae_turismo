@@ -11,8 +11,11 @@ class DetalleHabitacionFactory extends Factory
     {
         return [
             'nombre' => $this->faker->sentence,
-
-            'habitacion_id' => rand(1,2),
+            'cantidadCama'  => 1,
+            'cantidadPersona' => 2,
+            'dimension' => $this->faker->sentence,
+            'banos' => $this->faker->sentence,
+            
         ];
     }
 }

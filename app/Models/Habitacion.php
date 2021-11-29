@@ -19,13 +19,13 @@ class Habitacion extends Model
     return $this->belongsTo(TipoHabitacion::class);
     }
 
-    // Relacion uno a muchos -> inversa
-   public function norma(){
-    return $this->belongsTo(Norma::class);
+    //relacion uno a mucho
+    public function detalleHabitacions(){
+        return $this->hasMany(DetalleHabitacion::class);
     }
 
-    // Relacion uno a muchos -> inversa
-   public function detalleHabitacion(){
-    return $this->belongsTo(DetalleHabitacion::class);
+     // relacion muchos a muchos
+     public function normas(){
+        return $this->belongsTo(Norma::class);
     }
 }

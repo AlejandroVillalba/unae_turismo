@@ -12,14 +12,14 @@ class CreateDetalleHabitacionsTable extends Migration
         Schema::create('detalle_habitacions', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('habitacion_id');
-    
-
-            $table->string('nombre');
+            $table->string('cama');
+            $table->integer('cantidadCama');
+            $table->integer('cantidadPersona');
+            $table->string('dimension');
+            $table->string('banos');
             $table->timestamps();
 
-            $table->foreign('habitacion_id')->references('id')->on('habitacions');
-            
+           
         });
     }
 

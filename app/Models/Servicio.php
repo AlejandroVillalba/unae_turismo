@@ -9,9 +9,9 @@ class Servicio extends Model
 {
     use HasFactory;
 
-   // Relacion uno a muchos -> inversa
-
-   public function alojamiento(){
-    return $this->belongsTo(Alojamiento::class);
+    // relacion muchos a muchos
+    public function alojamientos(){
+        return $this->belongsTo(Alojamiento::class);
     }
+  
 }

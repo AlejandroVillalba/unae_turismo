@@ -9,8 +9,8 @@ class Norma extends Model
 {
     use HasFactory;
 
-    //relacion uno a mucho
-    public function habitacions(){
-        return $this->hasMany(Habitacion::class);
+      // relacion muchos a muchos
+      public function habitacions(){
+        return $this->belongsTo(Habitacion::class);
     }
 }

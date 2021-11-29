@@ -19,13 +19,13 @@ class Alojamiento extends Model
     }
 
     //relacion uno a mucho
-    public function servicios(){
-        return $this->hasMany(Servicio::class);
-    }
-
-    //relacion uno a mucho
     public function habitacions(){
         return $this->hasMany(Habitacion::class);
+    }
+
+      // relacion muchos a muchos
+      public function servicios(){
+        return $this->belongsTo(Servicio::class);
     }
 }
 
