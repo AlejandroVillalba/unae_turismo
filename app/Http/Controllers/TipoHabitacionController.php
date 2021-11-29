@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Alojamiento;
-use App\Http\Requests\StoreAlojamientoRequest;
-use App\Http\Requests\UpdateAlojamientoRequest;
+use App\Models\TipoHabitacion;
+use App\Http\Requests\StoreTipoHabitacionRequest;
+use App\Http\Requests\UpdateTipoHabitacionRequest;
 
-class AlojamientoController extends Controller
+class TipoHabitacionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class AlojamientoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreAlojamientoRequest  $request
+     * @param  \App\Http\Requests\StoreTipoHabitacionRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAlojamientoRequest $request)
+    public function store(StoreTipoHabitacionRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class AlojamientoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Alojamiento  $alojamiento
+     * @param  \App\Models\TipoHabitacion  $tipoHabitacion
      * @return \Illuminate\Http\Response
      */
-    public function show(Alojamiento $alojamiento)
+    public function show(TipoHabitacion $tipoHabitacion)
     {
         //
     }
@@ -53,10 +53,10 @@ class AlojamientoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Alojamiento  $alojamiento
+     * @param  \App\Models\TipoHabitacion  $tipoHabitacion
      * @return \Illuminate\Http\Response
      */
-    public function edit(Alojamiento $alojamiento)
+    public function edit(TipoHabitacion $tipoHabitacion)
     {
         //
     }
@@ -64,11 +64,11 @@ class AlojamientoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateAlojamientoRequest  $request
-     * @param  \App\Models\Alojamiento  $alojamiento
+     * @param  \App\Http\Requests\UpdateTipoHabitacionRequest  $request
+     * @param  \App\Models\TipoHabitacion  $tipoHabitacion
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAlojamientoRequest $request, Alojamiento $alojamiento)
+    public function update(UpdateTipoHabitacionRequest $request, TipoHabitacion $tipoHabitacion)
     {
         //
     }
@@ -76,10 +76,10 @@ class AlojamientoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Alojamiento  $alojamiento
+     * @param  \App\Models\TipoHabitacion  $tipoHabitacion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Alojamiento $alojamiento)
+    public function destroy(TipoHabitacion $tipoHabitacion)
     {
         //
     }

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Alojamiento;
-use App\Http\Requests\StoreAlojamientoRequest;
-use App\Http\Requests\UpdateAlojamientoRequest;
+use App\Models\Habitacion;
+use App\Http\Requests\StoreHabitacionRequest;
+use App\Http\Requests\UpdateHabitacionRequest;
 
-class AlojamientoController extends Controller
+class HabitacionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class AlojamientoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreAlojamientoRequest  $request
+     * @param  \App\Http\Requests\StoreHabitacionRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAlojamientoRequest $request)
+    public function store(StoreHabitacionRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class AlojamientoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Alojamiento  $alojamiento
+     * @param  \App\Models\Habitacion  $habitacion
      * @return \Illuminate\Http\Response
      */
-    public function show(Alojamiento $alojamiento)
+    public function show(Habitacion $habitacion)
     {
         //
     }
@@ -53,10 +53,10 @@ class AlojamientoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Alojamiento  $alojamiento
+     * @param  \App\Models\Habitacion  $habitacion
      * @return \Illuminate\Http\Response
      */
-    public function edit(Alojamiento $alojamiento)
+    public function edit(Habitacion $habitacion)
     {
         //
     }
@@ -64,11 +64,11 @@ class AlojamientoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateAlojamientoRequest  $request
-     * @param  \App\Models\Alojamiento  $alojamiento
+     * @param  \App\Http\Requests\UpdateHabitacionRequest  $request
+     * @param  \App\Models\Habitacion  $habitacion
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAlojamientoRequest $request, Alojamiento $alojamiento)
+    public function update(UpdateHabitacionRequest $request, Habitacion $habitacion)
     {
         //
     }
@@ -76,10 +76,10 @@ class AlojamientoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Alojamiento  $alojamiento
+     * @param  \App\Models\Habitacion  $habitacion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Alojamiento $alojamiento)
+    public function destroy(Habitacion $habitacion)
     {
         //
     }

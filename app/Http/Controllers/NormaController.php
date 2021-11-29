@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Alojamiento;
-use App\Http\Requests\StoreAlojamientoRequest;
-use App\Http\Requests\UpdateAlojamientoRequest;
+use App\Models\Norma;
+use App\Http\Requests\StoreNormaRequest;
+use App\Http\Requests\UpdateNormaRequest;
 
-class AlojamientoController extends Controller
+class NormaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class AlojamientoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreAlojamientoRequest  $request
+     * @param  \App\Http\Requests\StoreNormaRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAlojamientoRequest $request)
+    public function store(StoreNormaRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class AlojamientoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Alojamiento  $alojamiento
+     * @param  \App\Models\Norma  $norma
      * @return \Illuminate\Http\Response
      */
-    public function show(Alojamiento $alojamiento)
+    public function show(Norma $norma)
     {
         //
     }
@@ -53,10 +53,10 @@ class AlojamientoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Alojamiento  $alojamiento
+     * @param  \App\Models\Norma  $norma
      * @return \Illuminate\Http\Response
      */
-    public function edit(Alojamiento $alojamiento)
+    public function edit(Norma $norma)
     {
         //
     }
@@ -64,11 +64,11 @@ class AlojamientoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateAlojamientoRequest  $request
-     * @param  \App\Models\Alojamiento  $alojamiento
+     * @param  \App\Http\Requests\UpdateNormaRequest  $request
+     * @param  \App\Models\Norma  $norma
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAlojamientoRequest $request, Alojamiento $alojamiento)
+    public function update(UpdateNormaRequest $request, Norma $norma)
     {
         //
     }
@@ -76,10 +76,10 @@ class AlojamientoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Alojamiento  $alojamiento
+     * @param  \App\Models\Norma  $norma
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Alojamiento $alojamiento)
+    public function destroy(Norma $norma)
     {
         //
     }

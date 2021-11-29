@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAlojamientosTable extends Migration
+class CreateNormasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,18 @@ class CreateAlojamientosTable extends Migration
      */
     public function up()
     {
-        Schema::create('alojamientos', function (Blueprint $table) {
+        Schema::create('normas', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+
+            $table->unsignedBigInteger('habitacion_id');
+
+            $table->string('nombre');
+            $table->dateTime('ingreso');
+            $table->dateTime('salida');
+            
             $table->timestamps();
+
+            $table->foreign('habitacion_id')->references('id')->on('habitacions');
         });
     }
 
@@ -27,6 +35,6 @@ class CreateAlojamientosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alojamientos');
+        Schema::dropIfExists('normas');
     }
 }
