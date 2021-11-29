@@ -6,15 +6,13 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DetalleHabitacionFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
+    
     public function definition()
     {
         return [
-            //
+            'nombre' => $this->faker->sentence,
+
+            'habitacion_id' => rand(1,2),
         ];
     }
 }

@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class NormaFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
+    
     public function definition()
     {
         return [
-            //
+            'nombre' => $this->faker->sentence,
+            'ingreso' => $this->faker->dateTime,
+            'salida' => $this->faker->dateTime,
+
+            'habitacion_id' => rand(1,2),
         ];
     }
 }
