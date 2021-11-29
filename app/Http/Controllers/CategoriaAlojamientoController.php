@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\CategoriaAlojamiento;
-use App\Http\Requests\StoreCategoriaAlojamientoRequest;
-use App\Http\Requests\UpdateCategoriaAlojamientoRequest;
+use Illuminate\Http\Request;
 
+/**
+ * Class CategoriaAlojamientoController
+ * @package App\Http\Controllers
+ */
 class CategoriaAlojamientoController extends Controller
 {
     /**
@@ -15,7 +18,10 @@ class CategoriaAlojamientoController extends Controller
      */
     public function index()
     {
-        //
+        $categoriaAlojamientos = CategoriaAlojamiento::paginate();
+
+        return view('categoria-alojamiento.index', compact('categoriaAlojamientos'))
+            ->with('i', (request()->input('page', 1) - 1) * $categoriaAlojamientos->perPage());
     }
 
     /**
@@ -25,62 +31,79 @@ class CategoriaAlojamientoController extends Controller
      */
     public function create()
     {
-        //
+        $categoriaAlojamiento = new CategoriaAlojamiento();
+        return view('categoria-alojamiento.create', compact('categoriaAlojamiento'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreCategoriaAlojamientoRequest  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCategoriaAlojamientoRequest $request)
+    public function store(Request $request)
     {
-        //
+        request()->validate(CategoriaAlojamiento::$rules);
+
+        $categoriaAlojamiento = CategoriaAlojamiento::create($request->all());
+
+        return redirect()->route('categoria-alojamientos.index')
+            ->with('success', 'CategoriaAlojamiento created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\CategoriaAlojamiento  $categoriaAlojamiento
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(CategoriaAlojamiento $categoriaAlojamiento)
+    public function show($id)
     {
-        //
+        $categoriaAlojamiento = CategoriaAlojamiento::find($id);
+
+        return view('categoria-alojamiento.show', compact('categoriaAlojamiento'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\CategoriaAlojamiento  $categoriaAlojamiento
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(CategoriaAlojamiento $categoriaAlojamiento)
+    public function edit($id)
     {
-        //
+        $categoriaAlojamiento = CategoriaAlojamiento::find($id);
+
+        return view('categoria-alojamiento.edit', compact('categoriaAlojamiento'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateCategoriaAlojamientoRequest  $request
-     * @param  \App\Models\CategoriaAlojamiento  $categoriaAlojamiento
+     * @param  \Illuminate\Http\Request $request
+     * @param  CategoriaAlojamiento $categoriaAlojamiento
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCategoriaAlojamientoRequest $request, CategoriaAlojamiento $categoriaAlojamiento)
+    public function update(Request $request, CategoriaAlojamiento $categoriaAlojamiento)
     {
-        //
+        request()->validate(CategoriaAlojamiento::$rules);
+
+        $categoriaAlojamiento->update($request->all());
+
+        return redirect()->route('categoria-alojamientos.index')
+            ->with('success', 'CategoriaAlojamiento updated successfully');
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\CategoriaAlojamiento  $categoriaAlojamiento
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
-    public function destroy(CategoriaAlojamiento $categoriaAlojamiento)
+    public function destroy($id)
     {
-        //
+        $categoriaAlojamiento = CategoriaAlojamiento::find($id)->delete();
+
+        return redirect()->route('categoria-alojamientos.index')
+            ->with('success', 'CategoriaAlojamiento deleted successfully');
     }
 }

@@ -83,7 +83,7 @@ return [
     |
     */
 
-    'layout_topnav' => true,
+    'layout_topnav' => false,
     'layout_boxed' => null,
     'layout_fixed_sidebar' => null,
     'layout_fixed_navbar' => null,
@@ -244,11 +244,41 @@ return [
             'can' => 'users.index',
         ],
         [
+            'text' => 'Normas',
+            'url'  => 'normas',
+            //'icon' => 'fas fa-user-cog fa-fw',
+            'can' => 'users.index',
+        ],
+        [
+            'text' => 'Servicios',
+            'url'  => 'servicios',
+            //'icon' => 'fas fa-user-cog fa-fw',
+            'can' => 'users.index',
+        ],
+        [
+            'text' => 'Tipo de Habitacion',
+            'url'  => 'tipo-habitacions',
+            //'icon' => 'fas fa-user-cog fa-fw',
+            'can' => 'users.index',
+        ],
+        [
+            'text' => 'Detalle de habitacion',
+            'url'  => 'detalle-habitacions',
+            //'icon' => 'fas fa-user-cog fa-fw',
+            'can' => 'users.index',
+        ],
+        [
+            'text' => 'Categoria de alojamiento',
+            'url'  => 'categoria-alojamientos',
+            //'icon' => 'fas fa-user-cog fa-fw',
+            'can' => 'users.index',
+        ],
+        [
             'text' => 'Registre su Alojamientos',
             'url'  => 'alojamientos',
             'icon' => 'fas fa-hotel',
             'topnav' => true,
-        ],       
+        ],     
         // [
         //      'text' => 'Iniciar Sesión',
         //      'url'  => 'login',

@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         TipoHabitacion::factory(5)->create();
         DetalleHabitacion::factory(5)->create();
         Alojamiento::factory(5)->create();
-       // Habitacion::factory(5)->create();
+        Habitacion::factory(5)->create();
         Servicio::factory(20)->create();
         Norma::factory(15)->create();
        

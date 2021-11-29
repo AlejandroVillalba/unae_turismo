@@ -10,9 +10,9 @@ class DetalleHabitacionFactory extends Factory
     public function definition()
     {
         return [
-            'nombre' => $this->faker->sentence,
-            'cantidadCama'  => 1,
-            'cantidadPersona' => 2,
+            'cama' => $this->faker->sentence,
+            'cantidadCama'  => rand(1,2),
+            'cantidadPersona' => rand(1,2),
             'dimension' => $this->faker->sentence,
             'banos' => $this->faker->sentence,
             
