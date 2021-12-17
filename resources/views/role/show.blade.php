@@ -30,9 +30,10 @@
                             <li>
                                 {{ $permission->description }}
                             </li>
+                           
                         </div>
                         @endforeach
-
+                     
                     </div>
                 </div>
             </div>

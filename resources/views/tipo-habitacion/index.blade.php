@@ -50,7 +50,6 @@
 
                                             <td>
                                                 <form action="{{ route('tipo-habitacions.destroy',$tipoHabitacion->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('tipo-habitacions.show',$tipoHabitacion->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('tipo-habitacions.edit',$tipoHabitacion->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
@@ -68,4 +67,11 @@
             </div>
         </div>
     </div>
+@endsection
+@section('footer')
+  <strong>Copyright © 2021-2021 <a href="https://www.unae.edu.py/tv/">UNAE</a>.</strong> Reservados todos los derechos.
+  <div class="float-right d-none d-sm-inline">v1.0</div>
+  @unless (Auth::check()) No has iniciado sesión.
+  <a href="{{ route('login') }}" >Iniciar Sesión</a>
+  @endunless
 @endsection

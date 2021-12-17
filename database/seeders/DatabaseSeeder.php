@@ -19,16 +19,21 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(25)->create();
 
-        $this->call(RoleSeeder::class);
-        $this->call(UserSeeder::class);
+        $this->call([
+            RoleSeeder::class,
+            UserSeeder::class,
+            CategoriaAlojamientoSeeder::class,
+            TipoHabitacionSeeder::class,
+        ]);
+       
 
-        CategoriaAlojamiento::factory(10)->create();
-        TipoHabitacion::factory(5)->create();
-        DetalleHabitacion::factory(5)->create();
-        Alojamiento::factory(5)->create();
-        Habitacion::factory(5)->create();
-        Servicio::factory(20)->create();
-        Norma::factory(15)->create();
+        CategoriaAlojamiento::factory()->count(10)->create();
+        TipoHabitacion::factory(25)->create();
+        DetalleHabitacion::factory(25)->create();
+        Alojamiento::factory(25)->create();
+        Habitacion::factory(25)->create();
+        Servicio::factory(25)->create();
+        Norma::factory(25)->create();
        
     }
 }

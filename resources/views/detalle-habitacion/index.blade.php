@@ -37,11 +37,11 @@
                                     <tr>
                                         <th>N°</th>
                                         
-										<th>Cama</th>
-										<th>Cantidadcama</th>
-										<th>Cantidadpersona</th>
-										<th>Dimension</th>
-										<th>Banos</th>
+										<th>Camas</th>
+										<th>Cantidad de camass</th>
+										<th>Cantidad de personas</th>
+										<th>Dimensión</th>
+										<th>Baños</th>
 
                                         <th></th>
                                     </tr>
@@ -77,4 +77,11 @@
             </div>
         </div>
     </div>
+@endsection
+@section('footer')
+  <strong>Copyright © 2021-2021 <a href="https://www.unae.edu.py/tv/">UNAE</a>.</strong> Reservados todos los derechos.
+  <div class="float-right d-none d-sm-inline">v1.0</div>
+  @unless (Auth::check()) No has iniciado sesión.
+  <a href="{{ route('login') }}" >Iniciar Sesión</a>
+  @endunless
 @endsection

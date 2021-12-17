@@ -226,6 +226,17 @@ return [
             'topnav' => true,
         ],
         [
+            'text' => 'Inicio',
+            'url'  => '/',
+            'icon' => 'fas fa-home',
+            'topnav' => false,
+        ],
+
+        [
+            'header' => 'CONFIGURACIONES DE LA CUENTA',
+            'can' => 'users.index'
+        ],
+        [
             'text' => 'Usuarios',
             'url'  => 'users',
             'icon' => 'fas fa-users',
@@ -243,6 +254,12 @@ return [
             'icon' => 'fas fa-user-cog fa-fw',
             'can' => 'users.index',
         ],
+
+        [
+            'header' => 'CONFIGURACIONES DE REGISTRO DE ALOJAMIENTOS',
+            'can' => 'users.index'
+        ],
+
         [
             'text' => 'Normas',
             'url'  => 'normas',
@@ -280,11 +297,11 @@ return [
             'topnav' => true,
         ],     
         // [
-        //      'text' => 'Iniciar Sesión',
-        //      'url'  => 'login',
-        //      'icon' => 'fas fa-fw fa-user',
-        //      'topnav_right' => true,
-        //      'can' => 'home',
+        //     'text' => 'Iniciar Sesión',
+        //     'url'  => 'login',
+        //     'icon' => 'fas fa-fw fa-user',
+        //     'topnav_right' => true,
+        //     'can' => 'login',
         // ],
         [
             'type'         => 'darkmode-widget',

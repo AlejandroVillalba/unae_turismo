@@ -27,11 +27,10 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover">
+                            <table class="table table-bordered data-table">
                                 <thead class="thead">
                                     <tr>
                                         <th>N°</th>
-                                        
 										<th>Nombre</th>
 										<th>Correo electrónico</th>
                                         <th>Rol</th>
@@ -74,3 +73,13 @@
   <a href="{{ route('login') }}" >Iniciar Sesión</a>
   @endunless
 @endsection
+@section('js')
+    <script> 
+       $(function(){
+        var table = $('.data-table').DataTable({
+
+
+        });
+      });
+    </script>
+@stop

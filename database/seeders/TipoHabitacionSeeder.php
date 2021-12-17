@@ -2,17 +2,15 @@
 
 namespace Database\Seeders;
 
+use App\Models\TipoHabitacion;
 use Illuminate\Database\Seeder;
 
 class TipoHabitacionSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+    
     public function run()
     {
-        //
+        TipoHabitacion::create(['nombre' => 'Simple']);
+        TipoHabitacion::create(['nombre' => 'Matrimonial']);
     }
 }

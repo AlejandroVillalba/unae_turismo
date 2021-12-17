@@ -31,7 +31,13 @@ Route::resource('permissions', PermissionController::class)
     ->except('show');
 
 Route::resource('normas', NormaController::class);
+
 Route::resource('servicios', ServicioController::class);
-Route::resource('tipo-habitacions', TipoHabitacionController::class);
+
+Route::resource('tipo-habitacions', TipoHabitacionController::class)
+    ->except('show');
+
 Route::resource('detalle-habitacions', DetalleHabitacionController::class);
-Route::resource('categoria-alojamientos', CategoriaAlojamientoController::class);
+
+Route::resource('categoria-alojamientos', CategoriaAlojamientoController::class)
+    ->except('show');
