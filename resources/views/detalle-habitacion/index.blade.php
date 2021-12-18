@@ -12,11 +12,6 @@
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-
-                            <span id="card_title">
-                                {{ __('Detalle Habitacion') }}
-                            </span>
-
                              <div class="float-right">
                                 <a href="{{ route('detalle-habitacions.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Crear nuevo') }}
