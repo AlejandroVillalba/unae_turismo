@@ -27,7 +27,7 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered data-table">
+                            <table id="usuario" class="table table-striped table-hover shadow-lg mt-4">
                                 <thead class="thead">
                                     <tr>
                                         <th>N°</th>
@@ -47,7 +47,6 @@
                                             <td>{{ implode(', ', $user->roles()->get()->pluck('name')->toArray()) }}</td>
                                             <td>
                                                 <form action="{{ route('users.destroy',$user->id) }}" method="POST">
-                                                    {{-- <a class="btn bg-gradient-navy btn-sm " href="{{ route('users.show',$user->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a> --}}
                                                     <a class="btn bg-gradient-info btn-sm" href="{{ route('users.edit',$user->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
@@ -61,7 +60,6 @@
                         </div>
                     </div>
                 </div>
-                {!! $users->links() !!}
             </div>
         </div>
     </div>
@@ -75,11 +73,23 @@
 @endsection
 @section('js')
     <script> 
-       $(function(){
-        var table = $('.data-table').DataTable({
-
-
+    $(document).ready( function () {
+        $('#usuario').DataTable({
+            "language": {
+                "search": "Buscar:",
+                "lengthMenu": "Mostrar _MENU_ registros por página",
+                "zeroRecords": "Valor no encontrado - lo siento",
+                "info": "Mostrando _PAGE_ de _PAGES_ página",
+                "infoEmpty": "No hay registros disponibles",
+                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente",
+                    "first": "Primero",
+                    "last": "Último"
+                }
+            }
         });
-      });
+    });
     </script>
 @stop

@@ -13,11 +13,8 @@ class Servicio extends Model
     static $rules = [
 		'nombre' => 'required',
     ];
-
-    protected $perPage = 20;
-
+    
     protected $fillable = ['nombre'];
-
 
     public function alojamientosHasServicios()
     {

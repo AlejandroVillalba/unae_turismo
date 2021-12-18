@@ -256,7 +256,7 @@ return [
         ],
 
         [
-            'header' => 'CONFIGURACIONES DE REGISTRO DE ALOJAMIENTOS',
+            'header' => 'ADMINISTRADOR',
             'can' => 'users.index'
         ],
 

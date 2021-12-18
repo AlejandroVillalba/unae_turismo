@@ -32,13 +32,11 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover">
+                            <table id="categoriaAlojamientos" class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
                                         <th>N°</th>
-                                        
 										<th>Nombre</th>
-
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -46,9 +44,7 @@
                                     @foreach ($categoriaAlojamientos as $categoriaAlojamiento)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
 											<td>{{ $categoriaAlojamiento->nombre }}</td>
-
                                             <td>
                                                 <form action="{{ route('categoria-alojamientos.destroy',$categoriaAlojamiento->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-success" href="{{ route('categoria-alojamientos.edit',$categoriaAlojamiento->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
@@ -64,7 +60,6 @@
                         </div>
                     </div>
                 </div>
-                {!! $categoriaAlojamientos->links() !!}
             </div>
         </div>
     </div>
@@ -76,3 +71,25 @@
   <a href="{{ route('login') }}" >Iniciar Sesión</a>
   @endunless
 @endsection
+@section('js')
+    <script> 
+    $(document).ready( function () {
+        $('#categoriaAlojamientos').DataTable({
+            "language": {
+                "search": "Buscar:",
+                "lengthMenu": "Mostrar _MENU_ registros por página",
+                "zeroRecords": "Valor no encontrado - lo siento",
+                "info": "Mostrando _PAGE_ de _PAGES_ página",
+                "infoEmpty": "No hay registros disponibles",
+                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente",
+                    "first": "Primero",
+                    "last": "Último"
+                }
+            }
+        });
+    });
+    </script>
+@stop

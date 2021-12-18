@@ -10,10 +10,10 @@ class ServicioController extends Controller
     
     public function index()
     {
-        $servicios = Servicio::paginate();
+        $servicios = Servicio::all();
 
         return view('servicio.index', compact('servicios'))
-            ->with('i', (request()->input('page', 1) - 1) * $servicios->perPage());
+            ->with('i');
     }
 
     

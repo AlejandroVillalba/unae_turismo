@@ -33,7 +33,6 @@ class User extends Authenticatable
         'password' => 'required',
     ];
 
-    protected $perPage = 20;
    
     protected $hidden = [
         'password',

@@ -32,13 +32,11 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover">
+                            <table id="servicios" class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
                                         <th>N°</th>
-                                        
 										<th>Nombre</th>
-
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -46,9 +44,7 @@
                                     @foreach ($servicios as $servicio)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
 											<td>{{ $servicio->nombre }}</td>
-
                                             <td>
                                                 <form action="{{ route('servicios.destroy',$servicio->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('servicios.show',$servicio->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
@@ -65,7 +61,6 @@
                         </div>
                     </div>
                 </div>
-                {!! $servicios->links() !!}
             </div>
         </div>
     </div>
@@ -77,3 +72,25 @@
   <a href="{{ route('login') }}" >Iniciar Sesión</a>
   @endunless
 @endsection
+@section('js')
+    <script> 
+    $(document).ready( function () {
+        $('#servicios').DataTable({
+            "language": {
+                "search": "Buscar:",
+                "lengthMenu": "Mostrar _MENU_ registros por página",
+                "zeroRecords": "Valor no encontrado - lo siento",
+                "info": "Mostrando _PAGE_ de _PAGES_ página",
+                "infoEmpty": "No hay registros disponibles",
+                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente",
+                    "first": "Primero",
+                    "last": "Último"
+                }
+            }
+        });
+    } );
+    </script>
+@stop

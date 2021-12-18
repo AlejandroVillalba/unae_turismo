@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 
 class PermissionController extends Controller
 {
-    protected $perPage = 20;
     public function __construct()
     {
         // protecion de url can:nombreDelPermiso especificamos a cual metodo queremos que se aplique
@@ -18,10 +17,10 @@ class PermissionController extends Controller
     }
     public function index()
     {
-        $permissions = Permission::paginate();
+        $permissions = Permission::all();
 
         return view('permission.index', compact('permissions'))
-            ->with('i', (request()->input('page', 1) - 1) * $permissions->perPage());
+            ->with('i');
     }
 
 

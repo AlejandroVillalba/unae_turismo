@@ -16,9 +16,6 @@ class Norma extends Model
 		'salida' => 'required',
     ];
 
-    protected $perPage = 20;
-
-   
     protected $fillable = ['nombre','ingreso','salida'];
 
 

@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
-    protected $perPage = 20;
     public function __construct()
     {
         // protecion de url can:nombreDelPermiso especificamos a cual metodo queremos que se aplique
@@ -20,10 +19,10 @@ class RoleController extends Controller
     }
     public function index()
     {
-        $roles = Role::paginate();
+        $roles = Role::all();
 
         return view('role.index', compact('roles'))
-            ->with('i', (request()->input('page', 1) - 1) * $roles->perPage());
+            ->with('i');
     }
 
    

@@ -11,10 +11,10 @@ class DetalleHabitacionController extends Controller
     
     public function index()
     {
-        $detalleHabitacions = DetalleHabitacion::paginate();
+        $detalleHabitacions = DetalleHabitacion::all();
 
         return view('detalle-habitacion.index', compact('detalleHabitacions'))
-            ->with('i', (request()->input('page', 1) - 1) * $detalleHabitacions->perPage());
+            ->with('i');
     }
 
   

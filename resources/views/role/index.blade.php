@@ -26,7 +26,7 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover">
+                            <table id="roles" class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
                                         <th>N°</th>
@@ -38,7 +38,6 @@
                                     @foreach ($roles as $role)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
 											<td>{{ $role->name }}</td>
                                             <td>
                                                 <form action="{{ route('roles.destroy',$role->id) }}" method="POST">
@@ -56,7 +55,6 @@
                         </div>
                     </div>
                 </div>
-                {!! $roles->links() !!}
             </div>
         </div>
     </div>
@@ -68,3 +66,25 @@
   <a href="{{ route('login') }}" >Iniciar Sesión</a>
   @endunless
 @endsection
+@section('js')
+    <script> 
+    $(document).ready( function () {
+        $('#roles').DataTable({
+            "language": {
+                "search": "Buscar:",
+                "lengthMenu": "Mostrar _MENU_ registros por página",
+                "zeroRecords": "Valor no encontrado - lo siento",
+                "info": "Mostrando _PAGE_ de _PAGES_ página",
+                "infoEmpty": "No hay registros disponibles",
+                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Siguiente",
+                    "first": "Primero",
+                    "last": "Último"
+                }
+            }
+        });
+    });
+    </script>
+@stop

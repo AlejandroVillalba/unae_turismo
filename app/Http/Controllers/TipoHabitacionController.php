@@ -11,10 +11,10 @@ class TipoHabitacionController extends Controller
     
     public function index()
     {
-        $tipoHabitacions = TipoHabitacion::paginate();
+        $tipoHabitacions = TipoHabitacion::all();
 
         return view('tipo-habitacion.index', compact('tipoHabitacions'))
-            ->with('i', (request()->input('page', 1) - 1) * $tipoHabitacions->perPage());
+            ->with('i');
     }
 
     

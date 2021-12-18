@@ -10,10 +10,10 @@ class CategoriaAlojamientoController extends Controller
     
     public function index()
     {
-        $categoriaAlojamientos = CategoriaAlojamiento::paginate();
+        $categoriaAlojamientos = CategoriaAlojamiento::all();
 
         return view('categoria-alojamiento.index', compact('categoriaAlojamientos'))
-            ->with('i', (request()->input('page', 1) - 1) * $categoriaAlojamientos->perPage());
+            ->with('i');
     }
 
    

@@ -14,9 +14,6 @@ class CategoriaAlojamiento extends Model
 		'nombre' => 'required',
     ];
 
-    protected $perPage = 10; //paginacion
-
-    
     protected $fillable = ['nombre'];
 
 

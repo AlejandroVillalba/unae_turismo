@@ -18,11 +18,11 @@ class UserController extends Controller
     }
     public function index()
     {
-        $users = User::paginate();
+        $users = User::all();
 
         return view('user.index', compact('users'))
-            ->with('i', (request()->input('page', 1) - 1) * $users->perPage());
-    }
+            ->with('i');
+    } 
 
 
     public function create()
@@ -69,7 +69,6 @@ class UserController extends Controller
         $user->roles()->sync($request->roles); //asignamos el rol
         $user->update($request->all());
         
-        //dd($user->load('roles'));
         // ver editar contraseña
         return redirect()->route('users.index')
             ->with(

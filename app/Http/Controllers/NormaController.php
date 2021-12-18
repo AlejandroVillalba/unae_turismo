@@ -11,10 +11,10 @@ class NormaController extends Controller
     
     public function index()
     {
-        $normas = Norma::paginate();
+        $normas = Norma::all();
 
         return view('norma.index', compact('normas'))
-            ->with('i', (request()->input('page', 1) - 1) * $normas->perPage());
+            ->with('i');
     }
 
     

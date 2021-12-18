@@ -18,9 +18,6 @@ class DetalleHabitacion extends Model
 		'banos' => 'required',
     ];
 
-    protected $perPage = 20;
-
-    
     protected $fillable = ['cama','cantidadCama','cantidadPersona','dimension','banos'];
 
 
