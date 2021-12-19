@@ -27,7 +27,7 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="detalleHabitacion" class="table table-striped table-hover">
+                            <table id="detalleHabitacion" class="table table-striped table-hover shadow-lg mt-4 ">
                                 <thead class="thead">
                                     <tr>
                                         <th>N°</th>
@@ -80,7 +80,7 @@
 @section('js')
     <script> 
     $(document).ready( function () {
-        $('#detalleHabitacion').DataTable({
+        $('#detalleHabitacion').DataTable({     
             "language": {
                 "search": "Buscar:",
                 "lengthMenu": "Mostrar _MENU_ registros por página",
@@ -92,10 +92,35 @@
                     "previous": "Anterior",
                     "next": "Siguiente",
                     "first": "Primero",
-                    "last": "Último"
+                    "last": "Último" 
                 }
-            }
+            },
+            dom: 'lfBrtip', 
+            responsive: true,
+            autoWidth:false,
+            "pagingType": "first_last_numbers",
+            buttons:[
+                {
+                    extend: 'excelHtml5',
+                    text:   '<i class="fas fa-file-excel"></i>',
+                    titleAttr: 'Exportar a Excel',
+                    className: 'btn btn-success'
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text:   '<i class="fas fa-file-pdf"></i>',
+                    titleAttr: 'Exportar a PDF',
+                    className: 'btn btn-danger'
+                },
+                {
+                    extend: 'print',
+                    text:   '<i class="fas fa-print"></i>',
+                    titleAttr: 'Imprimir',
+                    className: 'btn btn-info'
+                }
+            ]
         });
+
     });
     </script>
 @stop

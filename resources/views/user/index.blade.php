@@ -78,7 +78,7 @@
             "language": {
                 "search": "Buscar:",
                 "lengthMenu": "Mostrar _MENU_ registros por página",
-                "zeroRecords": "Valor no encontrado - lo siento",
+                "zeroRecords": "No se encontraron registros que coincidan con la búsqueda",
                 "info": "Mostrando _PAGE_ de _PAGES_ página",
                 "infoEmpty": "No hay registros disponibles",
                 "infoFiltered": "(filtrado de un total de _MAX_ registros)",
@@ -88,7 +88,31 @@
                     "first": "Primero",
                     "last": "Último"
                 }
-            }
+            },
+            dom: 'lfBrtip', 
+            responsive: true,
+            autoWidth:false,
+            "pagingType": "first_last_numbers",
+            buttons:[
+                {
+                    extend: 'excelHtml5',
+                    text:   '<i class="fas fa-file-excel"></i>',
+                    titleAttr: 'Exportar a Excel',
+                    className: 'btn btn-success'
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text:   '<i class="fas fa-file-pdf"></i>',
+                    titleAttr: 'Exportar a PDF',
+                    className: 'btn btn-danger'
+                },
+                {
+                    extend: 'print',
+                    text:   '<i class="fas fa-print"></i>',
+                    titleAttr: 'Imprimir',
+                    className: 'btn btn-info'
+                }
+            ]
         });
     });
     </script>

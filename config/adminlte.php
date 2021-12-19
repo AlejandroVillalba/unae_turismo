@@ -263,31 +263,31 @@ return [
         [
             'text' => 'Normas',
             'url'  => 'normas',
-            //'icon' => 'fas fa-user-cog fa-fw',
+            'icon' => 'fas fa-smoking-ban',
             'can' => 'users.index',
         ],
         [
             'text' => 'Servicios',
             'url'  => 'servicios',
-            //'icon' => 'fas fa-user-cog fa-fw',
+            'icon' => 'fas fa-wifi',
             'can' => 'users.index',
         ],
         [
             'text' => 'Tipo de Habitacion',
             'url'  => 'tipo-habitacions',
-            //'icon' => 'fas fa-user-cog fa-fw',
+            'icon' => 'fas fa-bed',
             'can' => 'users.index',
         ],
         [
             'text' => 'Detalle de habitacion',
             'url'  => 'detalle-habitacions',
-            //'icon' => 'fas fa-user-cog fa-fw',
+            'icon' => 'fas fa-shower',
             'can' => 'users.index',
         ],
         [
             'text' => 'Categoria de alojamiento',
             'url'  => 'categoria-alojamientos',
-            //'icon' => 'fas fa-user-cog fa-fw',
+            'icon' => 'fas fa-suitcase',
             'can' => 'users.index',
         ],
         [
@@ -411,6 +411,21 @@ return [
                     'type' => 'css',
                     'asset' => true,
                     'location' => 'vendor/datatables-plugins/buttons/css/buttons.bootstrap4.min.css',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor/datatables-plugins/responsive/css/responsive.bootstrap4.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true, 
+                    'location' => 'vendor\datatables-plugins\responsive\js\responsive.bootstrap4.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => true, 
+                    'location' => 'vendor\datatables-plugins\responsive\js\dataTables.responsive.min.js',
                 ],
             ],
         ],
