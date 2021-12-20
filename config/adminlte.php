@@ -273,29 +273,42 @@ return [
             'can' => 'users.index',
         ],
         [
-            'text' => 'Tipo de Habitacion',
+            'text' => 'Tipo de Habitaciones',
             'url'  => 'tipo-habitacions',
             'icon' => 'fas fa-bed',
             'can' => 'users.index',
         ],
         [
-            'text' => 'Detalle de habitacion',
+            'text' => 'Detalle de habitaciones',
             'url'  => 'detalle-habitacions',
             'icon' => 'fas fa-shower',
             'can' => 'users.index',
         ],
         [
-            'text' => 'Categoria de alojamiento',
+            'text' => 'Habitaciones',
+            'url'  => 'habitacions',
+            'icon' => 'fas fa-door-open',
+            'topnav' => false,
+        ], 
+        [
+            'text' => 'Categoria de alojamientos',
             'url'  => 'categoria-alojamientos',
             'icon' => 'fas fa-suitcase',
             'can' => 'users.index',
         ],
         [
             'text' => 'Registre su Alojamientos',
-            'url'  => 'alojamientos',
+            'route'  => 'alojamientos.create',
             'icon' => 'fas fa-hotel',
             'topnav' => true,
-        ],     
+        ],
+        [
+            'text' => 'Alojamientos',
+            'url'  => 'alojamientos',
+            'icon' => 'fas fa-hotel',
+            'topnav' => false,
+        ], 
+    
         // [
         //     'text' => 'Iniciar Sesión',
         //     'url'  => 'login',
@@ -571,6 +584,22 @@ return [
                     'type' => 'css',
                     'asset' => true,
                     'location' => 'vendor/summernote/summernote-bs4.min.css',
+                ],
+            ],
+        ],
+        // habilitado solo por secciones => Alojamiento
+        'Dropzone' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => true,
+                    'location' => 'vendor\dropzone\min\dropzone.min.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => true,
+                    'location' => 'vendor\dropzone\min\dropzone.min.css',
                 ],
             ],
         ],

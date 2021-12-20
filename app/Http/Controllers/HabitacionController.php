@@ -3,84 +3,69 @@
 namespace App\Http\Controllers;
 
 use App\Models\Habitacion;
-use App\Http\Requests\StoreHabitacionRequest;
-use App\Http\Requests\UpdateHabitacionRequest;
+use Illuminate\Http\Request;
+
 
 class HabitacionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {
-        //
+        $habitacions = Habitacion::paginate();
+
+        return view('habitacion.index', compact('habitacions'))
+            ->with('i');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+  
     public function create()
     {
-        //
+        $habitacion = new Habitacion();
+        return view('habitacion.create', compact('habitacion'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreHabitacionRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreHabitacionRequest $request)
+    
+    public function store(Request $request)
     {
-        //
+        request()->validate(Habitacion::$rules);
+
+        $habitacion = Habitacion::create($request->all());
+
+        return redirect()->route('habitacions.index')
+            ->with('success', 'Habitacion created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Habitacion  $habitacion
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Habitacion $habitacion)
+  
+    public function show(Habitacion  $habitacion)
     {
-        //
+
+        return view('habitacion.show', compact('habitacion'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Habitacion  $habitacion
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Habitacion $habitacion)
+    
+    public function edit(Habitacion  $habitacion)
     {
-        //
+
+        return view('habitacion.edit', compact('habitacion'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateHabitacionRequest  $request
-     * @param  \App\Models\Habitacion  $habitacion
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateHabitacionRequest $request, Habitacion $habitacion)
+    
+    public function update(Request $request, Habitacion $habitacion)
     {
-        //
+        request()->validate(Habitacion::$rules);
+
+        $habitacion->update($request->all());
+
+        return redirect()->route('habitacions.index')
+            ->with('success', 'Habitacion updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Habitacion  $habitacion
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Habitacion $habitacion)
+    
+    public function destroy(Habitacion  $habitacion)
     {
-        //
+        $habitacion->delete();
+
+        return redirect()->route('habitacions.index')
+            ->with('success', 'Habitacion deleted successfully');
     }
 }

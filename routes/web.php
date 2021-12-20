@@ -7,6 +7,7 @@ use App\Http\Controllers\AlojamientoController;
 use App\Http\Controllers\CategoriaAlojamientoController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DetalleHabitacionController;
+use App\Http\Controllers\HabitacionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NormaController;
 use App\Http\Controllers\PermissionController;
@@ -41,3 +42,7 @@ Route::resource('detalle-habitacions', DetalleHabitacionController::class);
 
 Route::resource('categoria-alojamientos', CategoriaAlojamientoController::class)
     ->except('show');
+
+Route::resource('alojamientos', AlojamientoController::class);
+
+Route::resource('habitacions', HabitacionController::class);

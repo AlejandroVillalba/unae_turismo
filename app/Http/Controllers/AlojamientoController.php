@@ -3,84 +3,71 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alojamiento;
-use App\Http\Requests\StoreAlojamientoRequest;
-use App\Http\Requests\UpdateAlojamientoRequest;
+use App\Models\CategoriaAlojamiento;
+use Illuminate\Http\Request;
+
 
 class AlojamientoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $alojamientos = Alojamiento::all();
+
+        return view('alojamiento.index', compact('alojamientos'))
+            ->with('i');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
-        //
+        $alojamiento = new Alojamiento();
+        $categories = CategoriaAlojamiento::pluck('nombre', 'id');
+        return view('alojamiento.create', compact('alojamiento', 'categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreAlojamientoRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreAlojamientoRequest $request)
+    
+    public function store(Request $request)
     {
-        //
+        request()->validate(Alojamiento::$rules);
+
+        $alojamiento = Alojamiento::create($request->all());
+       
+        return redirect()->route('alojamientos.index')
+            ->with('success', 'Alojamiento created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Alojamiento  $alojamiento
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show(Alojamiento $alojamiento)
     {
-        //
+
+        return view('alojamiento.show', compact('alojamiento'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Alojamiento  $alojamiento
-     * @return \Illuminate\Http\Response
-     */
+   
     public function edit(Alojamiento $alojamiento)
     {
-        //
+      
+        return view('alojamiento.edit', compact('alojamiento'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateAlojamientoRequest  $request
-     * @param  \App\Models\Alojamiento  $alojamiento
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateAlojamientoRequest $request, Alojamiento $alojamiento)
+  
+    public function update(Request $request, Alojamiento $alojamiento)
     {
-        //
+        request()->validate(Alojamiento::$rules);
+
+        $alojamiento->update($request->all());
+
+        return redirect()->route('alojamientos.index')
+            ->with('success', 'Alojamiento updated successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Alojamiento  $alojamiento
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Alojamiento $alojamiento)
+    
+    public function destroy(Alojamiento  $alojamiento)
     {
-        //
+        $alojamiento->delete();
+
+        return redirect()->route('alojamientos.index')
+            ->with('success', 'Alojamiento deleted successfully');
     }
 }

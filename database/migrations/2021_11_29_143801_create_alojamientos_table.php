@@ -20,6 +20,7 @@ class CreateAlojamientosTable extends Migration
             $table->string('slug');
             $table->string('imagenes');
             $table->string('direccion');
+            $table->string('nombreContacto');
             $table->string('telefono');
             $table->text('descripcion'); 
 
