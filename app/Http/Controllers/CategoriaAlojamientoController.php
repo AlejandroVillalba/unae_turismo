@@ -59,6 +59,6 @@ class CategoriaAlojamientoController extends Controller
         $categoriaAlojamiento->delete();
 
         return redirect()->route('categoria-alojamientos.index')
-            ->with('success', 'CategoriaAlojamiento deleted successfully');
+            ->with('eliminar', 'ok');
     }
 }

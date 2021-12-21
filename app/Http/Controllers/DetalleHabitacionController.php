@@ -65,6 +65,6 @@ class DetalleHabitacionController extends Controller
         $detalleHabitacion->delete();
 
         return redirect()->route('detalle-habitacions.index')
-            ->with('success', 'DetalleHabitacion deleted successfully');
+            ->with('eliminar', 'ok');
     }
 }

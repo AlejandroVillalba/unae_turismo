@@ -32,10 +32,42 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'permissions.edit', 'description' => 'Editar permisos'])->syncRoles([$role1]);
         Permission::create(['name' => 'permissions.destroy', 'description' => 'Eliminar permisos'])->syncRoles([$role1]);
 
-        Permission::create(['name' => 'alojamientos.index', 'description' => ' Ver lista de alojamiento'])->syncRoles([$role1, $role2]);  
+        Permission::create(['name' => 'alojamientos.index', 'description' => ' Ver lista de alojamiento'])->syncRoles([$role1]);  
         Permission::create(['name' => 'alojamientos.create', 'description' => 'Crear alojamiento'])->syncRoles([$role1, $role2]);
         Permission::create(['name' => 'alojamientos.edit', 'description' => 'Editar alojamiento'])->syncRoles([$role1, $role2]);
         Permission::create(['name' => 'alojamientos.destroy', 'description' => 'Eliminar alojamiento'])->syncRoles([$role1, $role2]);
+
+        Permission::create(['name' => 'normas.index', 'description' => 'Ver listado de permisos'])->syncRoles([$role1]);  
+        Permission::create(['name' => 'normas.create', 'description' => 'Crear permisos'])->syncRoles([$role1]);
+        Permission::create(['name' => 'normas.edit', 'description' => 'Editar permisos'])->syncRoles([$role1]);
+        Permission::create(['name' => 'normas.destroy', 'description' => 'Eliminar permisos'])->syncRoles([$role1]);
+
+        Permission::create(['name' => 'servicios.index', 'description' => 'Ver listado de permisos'])->syncRoles([$role1]);  
+        Permission::create(['name' => 'servicios.create', 'description' => 'Crear permisos'])->syncRoles([$role1]);
+        Permission::create(['name' => 'servicios.edit', 'description' => 'Editar permisos'])->syncRoles([$role1]);
+        Permission::create(['name' => 'servicios.destroy', 'description' => 'Eliminar permisos'])->syncRoles([$role1]);
+
+        Permission::create(['name' => 'tipo-habitacions.index', 'description' => 'Ver listado de permisos'])->syncRoles([$role1]);  
+        Permission::create(['name' => 'tipo-habitacions.create', 'description' => 'Crear permisos'])->syncRoles([$role1]);
+        Permission::create(['name' => 'tipo-habitacions.edit', 'description' => 'Editar permisos'])->syncRoles([$role1]);
+        Permission::create(['name' => 'tipo-habitacions.destroy', 'description' => 'Eliminar permisos'])->syncRoles([$role1]);
+
+        Permission::create(['name' => 'detalle-habitacions.index', 'description' => 'Ver listado de permisos'])->syncRoles([$role1]);  
+        Permission::create(['name' => 'detalle-habitacions.create', 'description' => 'Crear permisos'])->syncRoles([$role1]);
+        Permission::create(['name' => 'detalle-habitacions.edit', 'description' => 'Editar permisos'])->syncRoles([$role1]);
+        Permission::create(['name' => 'detalle-habitacions.destroy', 'description' => 'Eliminar permisos'])->syncRoles([$role1]);
+
+        Permission::create(['name' => 'categoria-alojamientos.index', 'description' => 'Ver listado de permisos'])->syncRoles([$role1]);  
+        Permission::create(['name' => 'categoria-alojamientos.create', 'description' => 'Crear permisos'])->syncRoles([$role1]);
+        Permission::create(['name' => 'categoria-alojamientos.edit', 'description' => 'Editar permisos'])->syncRoles([$role1]);
+        Permission::create(['name' => 'categoria-alojamientos.destroy', 'description' => 'Eliminar permisos'])->syncRoles([$role1]);
+
+        Permission::create(['name' => 'habitacions.index', 'description' => 'Ver listado de permisos'])->syncRoles([$role1]);  
+        Permission::create(['name' => 'habitacions.create', 'description' => 'Crear permisos'])->syncRoles([$role1]);
+        Permission::create(['name' => 'habitacions.edit', 'description' => 'Editar permisos'])->syncRoles([$role1]);
+        Permission::create(['name' => 'habitacions.destroy', 'description' => 'Eliminar permisos'])->syncRoles([$role1]);
+
+
         
     }
 }

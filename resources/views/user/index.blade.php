@@ -46,7 +46,7 @@
 											<td>{{ $user->email }}</td>
                                             <td>{{ implode(', ', $user->roles()->get()->pluck('name')->toArray()) }}</td>
                                             <td>
-                                                <form action="{{ route('users.destroy',$user->id) }}" method="POST">
+                                                <form  action="{{ route('users.destroy',$user->id) }}" class="formulario-eliminar" method="POST">
                                                     <a class="btn bg-gradient-info btn-sm" href="{{ route('users.edit',$user->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
@@ -73,47 +73,79 @@
 @endsection
 @section('js')
     <script> 
-    $(document).ready( function () {
-        $('#usuario').DataTable({
-            "language": {
-                "search": "Buscar:",
-                "lengthMenu": "Mostrar _MENU_ registros por página",
-                "zeroRecords": "No se encontraron registros que coincidan con la búsqueda",
-                "info": "Mostrando _PAGE_ de _PAGES_ página",
-                "infoEmpty": "No hay registros disponibles",
-                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
-                "paginate": {
-                    "previous": "Anterior",
-                    "next": "Siguiente",
-                    "first": "Primero",
-                    "last": "Último"
-                }
-            },
-            dom: 'lfBrtip', 
-            responsive: true,
-            autoWidth:false,
-            "pagingType": "first_last_numbers",
-            buttons:[
-                {
-                    extend: 'excelHtml5',
-                    text:   '<i class="fas fa-file-excel"></i>',
-                    titleAttr: 'Exportar a Excel',
-                    className: 'btn btn-success'
+        $(document).ready( function () {
+            $('#usuario').DataTable({
+                "language": {
+                    "search": "Buscar:",
+                    "lengthMenu": "Mostrar _MENU_ registros por página",
+                    "zeroRecords": "No se encontraron registros que coincidan con la búsqueda",
+                    "info": "Mostrando _PAGE_ de _PAGES_ página",
+                    "infoEmpty": "No hay registros disponibles",
+                    "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "paginate": {
+                        "previous": "Anterior",
+                        "next": "Siguiente",
+                        "first": "Primero",
+                        "last": "Último"
+                    }
                 },
-                {
-                    extend: 'pdfHtml5',
-                    text:   '<i class="fas fa-file-pdf"></i>',
-                    titleAttr: 'Exportar a PDF',
-                    className: 'btn btn-danger'
-                },
-                {
-                    extend: 'print',
-                    text:   '<i class="fas fa-print"></i>',
-                    titleAttr: 'Imprimir',
-                    className: 'btn btn-info'
-                }
-            ]
+                dom: 'lfBrtip', 
+                responsive: true,
+                autoWidth:false,
+                "pagingType": "first_last_numbers",
+                buttons:[
+                    {
+                        extend: 'excelHtml5',
+                        text:   '<i class="fas fa-file-excel"></i>',
+                        titleAttr: 'Exportar a Excel',
+                        className: 'btn btn-success'
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        text:   '<i class="fas fa-file-pdf"></i>',
+                        titleAttr: 'Exportar a PDF',
+                        className: 'btn btn-danger'
+                    },
+                    {
+                        extend: 'print',
+                        text:   '<i class="fas fa-print"></i>',
+                        titleAttr: 'Imprimir',
+                        className: 'btn btn-info'
+                    }
+                ]
+            });
         });
-    });
     </script>
+    {{-- alerta de eliminar --}}
+    @if (session('eliminar') == 'ok')
+        <script>
+            Swal.fire(
+                '¡Eliminado!',
+                'Su archivo ha sido eliminado con exito.'
+                )
+        </script>
+    @endif
+    <script> 
+        $(document).ready( function () {
+            $('.formulario-eliminar').submit(function(e){
+                e.preventDefault();
+                Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¡No podrás revertir esto!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, eliminar!',
+                cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                if (result.isConfirmed) {
+
+                    this.submit();
+                }
+                })
+            })
+        });
+    </script> 
+    {{-- fin alerta de eliminar --}}
 @stop

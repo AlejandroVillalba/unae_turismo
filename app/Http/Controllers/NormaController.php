@@ -65,6 +65,6 @@ class NormaController extends Controller
         $norma->delete();
 
         return redirect()->route('normas.index')
-            ->with('success', 'Norma deleted successfully');
+            ->with('eliminar', 'ok');
     }
 }

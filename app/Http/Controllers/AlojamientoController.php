@@ -22,7 +22,8 @@ class AlojamientoController extends Controller
     public function create()
     {
         $alojamiento = new Alojamiento();
-        $categories = CategoriaAlojamiento::pluck('nombre', 'id');
+        $categories = CategoriaAlojamiento::all();
+
         return view('alojamiento.create', compact('alojamiento', 'categories'));
     }
 
@@ -32,7 +33,7 @@ class AlojamientoController extends Controller
         request()->validate(Alojamiento::$rules);
 
         $alojamiento = Alojamiento::create($request->all());
-       
+  
         return redirect()->route('alojamientos.index')
             ->with('success', 'Alojamiento created successfully.');
     }
@@ -68,6 +69,6 @@ class AlojamientoController extends Controller
         $alojamiento->delete();
 
         return redirect()->route('alojamientos.index')
-            ->with('success', 'Alojamiento deleted successfully');
+            ->with('eliminar', 'ok');
     }
 }

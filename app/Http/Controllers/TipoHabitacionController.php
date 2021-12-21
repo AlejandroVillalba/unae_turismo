@@ -59,6 +59,6 @@ class TipoHabitacionController extends Controller
         $tipoHabitacion->delete();
 
         return redirect()->route('tipo-habitacions.index')
-            ->with('success', 'TipoHabitacion deleted successfully');
+            ->with('eliminar', 'ok');
     }
 }

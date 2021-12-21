@@ -289,6 +289,7 @@ return [
             'url'  => 'habitacions',
             'icon' => 'fas fa-door-open',
             'topnav' => false,
+            'can' => 'users.index',
         ], 
         [
             'text' => 'Categoria de alojamientos',
@@ -307,6 +308,7 @@ return [
             'url'  => 'alojamientos',
             'icon' => 'fas fa-hotel',
             'topnav' => false,
+            'can' => 'users.index',
         ], 
     
         // [

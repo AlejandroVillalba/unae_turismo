@@ -41,7 +41,7 @@
                                             <td>{{ ++$i }}</td>
 											<td>{{ $servicio->nombre }}</td>
                                             <td>
-                                                <form action="{{ route('servicios.destroy',$servicio->id) }}" method="POST">
+                                                <form  action="{{ route('servicios.destroy',$servicio->id) }}" class="formulario-eliminar" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('servicios.show',$servicio->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('servicios.edit',$servicio->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
@@ -112,4 +112,36 @@
         });
     } );
     </script>
+        {{-- alerta de eliminar --}}
+        @if (session('eliminar') == 'ok')
+        <script>
+            Swal.fire(
+                '¡Eliminado!',
+                'Su archivo ha sido eliminado con exito.'
+                )
+        </script>
+    @endif
+    <script> 
+        $(document).ready( function () {
+            $('.formulario-eliminar').submit(function(e){
+                e.preventDefault();
+                Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¡No podrás revertir esto!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, eliminar!',
+                cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                if (result.isConfirmed) {
+
+                    this.submit();
+                }
+                })
+            })
+        });
+    </script> 
+    {{-- fin alerta de eliminar --}}
 @stop

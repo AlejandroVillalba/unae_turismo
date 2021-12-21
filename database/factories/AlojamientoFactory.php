@@ -14,6 +14,7 @@ class AlojamientoFactory extends Factory
             'slug' => $this->faker->slug,
             'imagenes' => $this->faker->imageUrl(1280, 720),
             'direccion' => $this->faker->address,
+            'contacto_nombre' => $this->faker->name,
             'telefono' => $this->faker->phoneNumber,
             'descripcion' => $this->faker->text(300),
 

@@ -18,7 +18,8 @@
                         {{-- Nombre alojamiento --}}
                         <div class="card card-outline card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">¿Cómo se llama tu alojamiento?</h3>
+                                <h3 class="card-title">¡Hola! {{ Auth::user()->name }} ¿Cómo se llama tu alojamiento?</h3>
+                                <input type="hidden" id="user_id" name="user_id" value="{{Auth::user()->id}}">
                                 <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                                 </button>
@@ -26,22 +27,22 @@
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
-                                    {{ Form::label('categoria_alojamiento_id', 'Seleccione el tipo de alojamiento') }}
-                                    {{-- {{ Form::select('categoria_alojamiento_id', $categories, ['class' => 'custom-select' . ($errors->has('categoria_alojamiento_id') ? ' is-invalid' : ''), 'placeholder' => 'Categoria Alojamiento Id']) }} --}}
-                                    
-                                    <select class="form-control select2" style="width: 100%;">
-                                        @foreach ($categories as $categorie)
-                                        <option value="categoria_alojamiento_id" >{{$categorie}}</option>
-                                        @endforeach
-                                    </select>
-                                  
-                                    {!! $errors->first('categoria_alojamiento_id', '<div class="invalid-feedback">:message</p>') !!}
-                                </div>
-                                <div class="form-group">
                                     {{ Form::label('nombre', 'Nombre del alojamiento') }}
                                     {{ Form::text('nombre', $alojamiento->nombre, ['class' => 'form-control form-control-border col-5' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
                                     <p class="text-muted"><br> Este nombre es el que verán los clientes cuando busquen un lugar para alojarse.</p>
                                     {!! $errors->first('nombre', '<div class="invalid-feedback">:message</p>') !!}
+                                        {{-- slug --}}
+                                    <input type="hidden" name="slug" value="slug"> 
+                                </div>
+                                <div class="form-group">
+                                    {{ Form::label('categoria_alojamiento_id', 'Seleccione el tipo de alojamiento') }}                                    
+                                    <select class="form-control select2" name="categoria_alojamiento_id" style="width: 100%;">
+                                        @foreach ($categories as $categorie)
+                                        <option value="{{$categorie->id}}" >{{$categorie->nombre}}</option>
+                                        @endforeach
+                                    </select>
+                                   
+                                    {!! $errors->first('categoria_alojamiento_id', '<div class="invalid-feedback">:message</p>') !!}
                                 </div>
                             </div>
                         </div>
@@ -57,8 +58,8 @@
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
-                                    {{ Form::label('nombre', 'Nombre de contacto') }}
-                                    {{ Form::text('nombre', $alojamiento->nombreContacto, ['class' => 'form-control form-control-border col-5' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
+                                    {{ Form::label('contacto_nombre', 'Nombre de contacto') }}
+                                    {{ Form::text('contacto_nombre', $alojamiento->contacto_nombre, ['class' => 'form-control form-control-border col-5' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
                                     {!! $errors->first('nombre', '<div class="invalid-feedback">:message</p>') !!}
                                 </div>
                                 <div class="form-group">
@@ -75,8 +76,7 @@
                             <div class="card-header">
                                 <h3 class="card-title">¿Dónde se encuentra tu alojamiento?</h3>
                                 <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                                </button>
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
                                 </div> <!-- /.card-tools -->
                             </div>
                             <div class="card-body">
@@ -92,14 +92,10 @@
                                 </div>
                                 <div class="form-group">
                                     {{ Form::label('descripcion') }}
-                                    {{ Form::text('descripcion', $alojamiento->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion']) }}
+                                    {{ Form::textarea('descripcion', $alojamiento->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion']) }}
                                     {!! $errors->first('descripcion', '<div class="invalid-feedback">:message</p>') !!}
                                 </div>
-                                <div class="form-group">
-                                    {{ Form::label('imagenes') }}
-                                    {{ Form::file('imagenes', $alojamiento->imagenes, ['class' => 'form-control' . ($errors->has('imagenes') ? ' is-invalid' : ''), 'placeholder' => 'Imagenes']) }}
-                                    {!! $errors->first('imagenes', '<div class="invalid-feedback">:message</p>') !!}
-                                </div>
+
                                 </div>
                             </div>
                         </div>
@@ -108,6 +104,9 @@
                         <div class="card card-outline card-warning">
                             <div class="card-header">
                                 <h3 class="card-title">Fotos del establecimiento</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+                                </div> <!-- /.card-tools -->
                             </div>
                             <div class="card-body">
                                 <div class="callout callout-info">
@@ -115,6 +114,8 @@
                                     <p>Con fotos de calidad, los clientes se hacen una idea real de cómo es el alojamiento. Carga fotos de alta resolución para que vean
                                     todo lo que tu alojamiento les puede ofrecer. Mostraremos estas fotos en la página de tu establecimiento en la web de Unae-Turismo</p>
                                 </div>
+                                <!-- enviar valor para prueba -->
+                                <input type="hidden" name="imagenes" value="https://via.placeholder.com/1280x720.png/00cc">
                             <div id="actions" class="row">
                                 <div class="col-lg-6">
                                 <div class="btn-group w-100">
@@ -192,7 +193,11 @@
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
+                        <div class="box-footer mt20">
+                            <button type="submit" class="btn btn-block bg-gradient-primary btn-lg">Guardar</button>
                         </div>
+                        </div>
+
                     </div>
                     <!-- /.container -->                    
 
@@ -249,7 +254,7 @@
         $('.select2bs4').select2({
         theme: 'bootstrap4'
         })
-    } 
+    })
   // DropzoneJS Demo Code Start
   Dropzone.autoDiscover = false
 
