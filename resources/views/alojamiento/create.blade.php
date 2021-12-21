@@ -28,7 +28,7 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     {{ Form::label('nombre', 'Nombre del alojamiento') }}
-                                    {{ Form::text('nombre', $alojamiento->nombre, ['class' => 'form-control form-control-border col-5' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
+                                    {{ Form::text('nombre', $alojamiento->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
                                     <p class="text-muted"><br> Este nombre es el que verán los clientes cuando busquen un lugar para alojarse.</p>
                                     {!! $errors->first('nombre', '<div class="invalid-feedback">:message</p>') !!}
                                         {{-- slug --}}
@@ -59,13 +59,13 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     {{ Form::label('contacto_nombre', 'Nombre de contacto') }}
-                                    {{ Form::text('contacto_nombre', $alojamiento->contacto_nombre, ['class' => 'form-control form-control-border col-5' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
+                                    {{ Form::text('contacto_nombre', $alojamiento->contacto_nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
                                     {!! $errors->first('nombre', '<div class="invalid-feedback">:message</p>') !!}
                                 </div>
                                 <div class="form-group">
                                     <p class="text-muted"><br>Número de teléfono (para ayudar con tu registro si fuese necesario).</p>
                                     {{ Form::label('telefono', 'Número de teléfono') }}
-                                    {{ Form::text('telefono', $alojamiento->telefono, ['class' => 'form-control form-control-border col-4' . ($errors->has('telefono') ? ' is-invalid' : ''), 'placeholder' => 'Telefono']) }}
+                                    {{ Form::number('telefono', $alojamiento->telefono, ['class' => 'form-control' . ($errors->has('telefono') ? ' is-invalid' : ''), 'placeholder' => 'Telefono']) }}
                                     {!! $errors->first('telefono', '<div class="invalid-feedback">:message</p>') !!}
                                 </div>
                             </div>
@@ -249,11 +249,7 @@
       $(function () {
         //Initialize Select2 Elements
         $('.select2').select2()
-
-        //Initialize Select2 Elements
-        $('.select2bs4').select2({
-        theme: 'bootstrap4'
-        })
+        
     })
   // DropzoneJS Demo Code Start
   Dropzone.autoDiscover = false

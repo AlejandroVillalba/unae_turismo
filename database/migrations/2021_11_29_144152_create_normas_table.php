@@ -17,8 +17,7 @@ class CreateNormasTable extends Migration
             $table->id();
 
             $table->string('nombre');
-            $table->dateTime('ingreso');
-            $table->dateTime('salida');
+
             
             $table->timestamps();
         });

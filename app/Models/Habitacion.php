@@ -30,13 +30,13 @@ class Habitacion extends Model
 {
     use HasFactory;
     static $rules = [
-		'tipo_habitacions_id' => 'required',
-		'alojamiento_id' => 'required',
-		'detalle_habitacion_id' => 'required',
-		'nombre' => 'required',
-		'precio' => 'required',
-		'descripcion' => 'required',
-		'disponible' => 'required',
+		// 'tipo_habitacions_id' => 'required',
+		// 'alojamiento_id' => 'required',
+		// 'detalle_habitacion_id' => 'required',
+		// 'nombre' => 'required',
+		// 'precio' => 'required',
+		// 'descripcion' => 'required',
+		// 'disponible' => 'required',
     ];
 
 

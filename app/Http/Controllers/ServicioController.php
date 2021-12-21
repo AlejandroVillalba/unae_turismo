@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class ServicioController extends Controller
 {
+    public function __construct()
+    {
+        // protecion de url can:nombreDelPermiso especificamos a cual metodo queremos que se aplique
+        $this->middleware('can:servicios.index')->only('index'); 
+        $this->middleware('can:servicios.create')->only('create');
+        $this->middleware('can:servicios.show')->only('show');
+        $this->middleware('can:servicios.edit')->only('edit', 'update');
+    }
     
     public function index()
     {

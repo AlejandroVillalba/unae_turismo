@@ -32,8 +32,6 @@
                                     <tr>
                                         <th>N°</th>
 										<th>Nombre</th>
-										<th>Ingreso</th>
-										<th>Salida</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -42,8 +40,6 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
 											<td>{{ $norma->nombre }}</td>
-											<td>{{ $norma->ingreso }}</td>
-											<td>{{ $norma->salida }}</td>
                                             <td>
                                                 <form action="{{ route('normas.destroy',$norma->id) }}" class="formulario-eliminar" method="POST">
                                                     <a class="btn btn-sm btn-primary " href="{{ route('normas.show',$norma->id) }}"><i class="fa fa-fw fa-eye"></i> Ver</a>

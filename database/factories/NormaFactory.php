@@ -11,8 +11,6 @@ class NormaFactory extends Factory
     {
         return [
             'nombre' => $this->faker->sentence,
-            'ingreso' => $this->faker->dateTime,
-            'salida' => $this->faker->dateTime,
 
         ];
     }

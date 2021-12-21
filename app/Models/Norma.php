@@ -12,11 +12,9 @@ class Norma extends Model
     
     static $rules = [
 		'nombre' => 'required',
-		'ingreso' => 'required',
-		'salida' => 'required',
     ];
 
-    protected $fillable = ['nombre','ingreso','salida'];
+    protected $fillable = ['nombre'];
 
 
    

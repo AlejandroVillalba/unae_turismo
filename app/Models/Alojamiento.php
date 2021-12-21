@@ -11,14 +11,14 @@ class Alojamiento extends Model
     use HasFactory;
 
     static $rules = [
-		// 'user_id' => 'required',
-		// 'categoria_alojamiento_id' => 'required',
-		// 'nombre' => 'required',
-		// 'slug' => 'required',
+		'user_id' => 'required',
+		'categoria_alojamiento_id' => 'required',
+		'nombre' => 'required',
+		'slug' => 'required',
 		// //'imagenes' => 'required',
-		// 'direccion' => 'required',
-		// 'telefono' => 'required',
-		// 'descripcion' => 'required',
+		'direccion' => 'required',
+		'telefono' => 'required',
+		'descripcion' => 'required',
     ];
 
   

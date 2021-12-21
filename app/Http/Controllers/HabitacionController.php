@@ -2,16 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alojamiento;
+use App\Models\DetalleHabitacion;
 use App\Models\Habitacion;
+use App\Models\TipoHabitacion;
 use Illuminate\Http\Request;
 
 
 class HabitacionController extends Controller
 {
-   
+    public function __construct()
+    {
+        // protecion de url can:nombreDelPermiso especificamos a cual metodo queremos que se aplique
+        $this->middleware('can:habitacions.index')->only('index'); 
+        $this->middleware('can:habitacions.create')->only('create');
+        $this->middleware('can:habitacions.show')->only('show');
+        $this->middleware('can:habitacions.edit')->only('edit', 'update');
+    }
     public function index()
     {
-        $habitacions = Habitacion::paginate();
+        $habitacions = Habitacion::all();
 
         return view('habitacion.index', compact('habitacions'))
             ->with('i');
@@ -21,7 +31,12 @@ class HabitacionController extends Controller
     public function create()
     {
         $habitacion = new Habitacion();
-        return view('habitacion.create', compact('habitacion'));
+
+        $categories = TipoHabitacion::all();
+        $alojamientos = Alojamiento::all();
+        $detalleHabitacion = DetalleHabitacion::all();
+
+        return view('habitacion.create', compact('habitacion','categories', 'alojamientos','detalleHabitacion' ));
     }
 
     
@@ -45,8 +60,10 @@ class HabitacionController extends Controller
     
     public function edit(Habitacion  $habitacion)
     {
-
-        return view('habitacion.edit', compact('habitacion'));
+        $categories = TipoHabitacion::all();
+        $alojamientos = Alojamiento::all();
+        $detalleHabitacion = DetalleHabitacion::all();
+        return view('habitacion.edit', compact('habitacion','categories', 'alojamientos','detalleHabitacion'));
     }
 
     

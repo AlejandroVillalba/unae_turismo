@@ -207,12 +207,12 @@ return [
 
     'menu' => [
         // Navbar items:
-        [
-            'search'       => true,
-            'text'         => 'Buscar',        // Placeholder for the underlying input.
-            'topnav_right' => true,            // Or "topnav => true" to place on the left.
+        // [
+        //     'search'       => true,
+        //     'text'         => 'Buscar',        // Placeholder for the underlying input.
+        //     'topnav_right' => true,            // Or "topnav => true" to place on the left.
             
-        ],
+        // ],
         // Sidebar items:
         [
             'type'       => 'sidebar-custom-search',
@@ -284,13 +284,7 @@ return [
             'icon' => 'fas fa-shower',
             'can' => 'users.index',
         ],
-        [
-            'text' => 'Habitaciones',
-            'url'  => 'habitacions',
-            'icon' => 'fas fa-door-open',
-            'topnav' => false,
-            'can' => 'users.index',
-        ], 
+
         [
             'text' => 'Categoria de alojamientos',
             'url'  => 'categoria-alojamientos',
@@ -303,21 +297,25 @@ return [
             'icon' => 'fas fa-hotel',
             'topnav' => true,
         ],
+        
+        [
+            'header' => 'CREAR ALOJAMIENTO',
+            'can' => 'users.index'
+        ],
         [
             'text' => 'Alojamientos',
             'url'  => 'alojamientos',
             'icon' => 'fas fa-hotel',
             'topnav' => false,
             'can' => 'users.index',
-        ], 
-    
-        // [
-        //     'text' => 'Iniciar Sesión',
-        //     'url'  => 'login',
-        //     'icon' => 'fas fa-fw fa-user',
-        //     'topnav_right' => true,
-        //     'can' => 'login',
-        // ],
+        ],
+        [
+            'text' => 'Habitaciones',
+            'url'  => 'habitacions',
+            'icon' => 'fas fa-door-open',
+            'topnav' => false,
+            'can' => 'users.index',
+        ],
         [
             'type'         => 'darkmode-widget',
             'topnav_right' => true, // Or "topnav => true" to place on the left.

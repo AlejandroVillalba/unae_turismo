@@ -7,7 +7,14 @@ use Illuminate\Http\Request;
 
 class CategoriaAlojamientoController extends Controller
 {
-    
+    public function __construct()
+    {
+        // protecion de url can:nombreDelPermiso especificamos a cual metodo queremos que se aplique
+        $this->middleware('can:categoria-alojamientos.index')->only('index'); 
+        $this->middleware('can:categoria-alojamientos.create')->only('create');
+        $this->middleware('can:categoria-alojamientos.show')->only('show');
+        $this->middleware('can:categoria-alojamientos.edit')->only('edit', 'update');
+    }   
     public function index()
     {
         $categoriaAlojamientos = CategoriaAlojamiento::all();

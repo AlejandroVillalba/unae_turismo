@@ -25,14 +25,6 @@
                             <strong>Nombre:</strong>
                             {{ $norma->nombre }}
                         </div>
-                        <div class="form-group">
-                            <strong>Ingreso:</strong>
-                            {{ $norma->ingreso }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Salida:</strong>
-                            {{ $norma->salida }}
-                        </div>
 
                     </div>
                 </div>

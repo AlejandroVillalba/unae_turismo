@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class TipoHabitacionController extends Controller
 {
+    public function __construct()
+    {
+        // protecion de url can:nombreDelPermiso especificamos a cual metodo queremos que se aplique
+        $this->middleware('can:tipo-habitacions.index')->only('index'); 
+        $this->middleware('can:tipo-habitacions.create')->only('create');
+        $this->middleware('can:tipo-habitacions.show')->only('show');
+        $this->middleware('can:tipo-habitacions.edit')->only('edit', 'update');
+    }
     
     public function index()
     {

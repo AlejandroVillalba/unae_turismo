@@ -9,7 +9,14 @@ use Illuminate\Http\Request;
 
 class AlojamientoController extends Controller
 {
-
+    public function __construct()
+    {
+        // protecion de url can:nombreDelPermiso especificamos a cual metodo queremos que se aplique
+        $this->middleware('can:alojamientos.index')->only('index'); 
+        $this->middleware('can:alojamientos.create')->only('create');
+        $this->middleware('can:alojamientos.show')->only('show');
+        $this->middleware('can:alojamientos.edit')->only('edit', 'update');
+    }
     public function index()
     {
         $alojamientos = Alojamiento::all();
