@@ -12,7 +12,7 @@
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                              <div class="float-right">
-                                <a href="{{ route('roles.create') }}" class="btn btn-block bg-gradient-purple btn-flat"  data-placement="left">
+                                <a href="{{ route('roles.create') }}" class="btn btn-block bg-gradient-info btn-flat"  data-placement="left">
                                   {{ __('Crear un nuevo rol') }}
                                 </a>
                               </div>

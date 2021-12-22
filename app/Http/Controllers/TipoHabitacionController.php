@@ -40,7 +40,7 @@ class TipoHabitacionController extends Controller
         $tipoHabitacion = TipoHabitacion::create($request->all());
 
         return redirect()->route('tipo-habitacions.index')
-            ->with('success', 'TipoHabitacion created successfully.');
+            ->with('success', 'Tipo Habitacion creado con éxito.');
     }
 
 
@@ -58,7 +58,7 @@ class TipoHabitacionController extends Controller
         $tipoHabitacion->update($request->all());
 
         return redirect()->route('tipo-habitacions.index')
-            ->with('success', 'TipoHabitacion updated successfully');
+            ->with('success', 'Tipo Habitacion Actualizado con éxito');
     }
 
   

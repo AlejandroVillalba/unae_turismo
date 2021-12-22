@@ -63,7 +63,7 @@ class DetalleHabitacionController extends Controller
         $detalleHabitacion->update($request->all());
 
         return redirect()->route('detalle-habitacions.index')
-            ->with('success', 'DetalleHabitacion updated successfully');
+            ->with('success', 'Detalle Habitacion Actualizado con éxito');
     }
 
    

@@ -38,7 +38,7 @@ class NormaController extends Controller
         $norma = Norma::create($request->all());
 
         return redirect()->route('normas.index')
-            ->with('success', 'Norma created successfully.');
+            ->with('success', 'Norma creado con éxito.');
     }
 
    
@@ -63,7 +63,7 @@ class NormaController extends Controller
         $norma->update($request->all());
 
         return redirect()->route('normas.index')
-            ->with('success', 'Norma updated successfully');
+            ->with('success', 'Norma Actualizado con éxito');
     }
 
 

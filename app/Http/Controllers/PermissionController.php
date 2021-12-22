@@ -37,7 +37,7 @@ class PermissionController extends Controller
         $permission = Permission::create($request->all());
 
         return redirect()->route('permissions.index')
-            ->with('success', 'Permission created successfully.');
+            ->with('success', 'Permission creado con éxito.');
     }
 
 
@@ -55,7 +55,7 @@ class PermissionController extends Controller
         $permission->update($request->all());
 
         return redirect()->route('permissions.index')
-            ->with('success', 'Permission updated successfully');
+            ->with('success', 'Permission Actualizado con éxito');
     }
 
 

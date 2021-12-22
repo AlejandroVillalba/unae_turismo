@@ -42,7 +42,7 @@ class AlojamientoController extends Controller
         $alojamiento = Alojamiento::create($request->all());
   
         return redirect()->route('alojamientos.index')
-            ->with('success', 'Alojamiento created successfully.');
+            ->with('success', 'Alojamiento creado con éxito.');
     }
 
     
@@ -67,7 +67,7 @@ class AlojamientoController extends Controller
         $alojamiento->update($request->all());
 
         return redirect()->route('alojamientos.index')
-            ->with('success', 'Alojamiento updated successfully');
+            ->with('success', 'Alojamiento Actualizado con éxito');
     }
 
     

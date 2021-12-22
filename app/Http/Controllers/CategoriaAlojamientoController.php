@@ -38,7 +38,7 @@ class CategoriaAlojamientoController extends Controller
         $categoriaAlojamiento = CategoriaAlojamiento::create($request->all());
 
         return redirect()->route('categoria-alojamientos.index')
-            ->with('success', 'CategoriaAlojamiento created successfully.');
+            ->with('success', 'Categoria Alojamiento creado con éxito.');
     }
 
     
@@ -57,7 +57,7 @@ class CategoriaAlojamientoController extends Controller
         $categoriaAlojamiento->update($request->all());
 
         return redirect()->route('categoria-alojamientos.index')
-            ->with('success', 'CategoriaAlojamiento updated successfully');
+            ->with('success', 'Categoria Alojamiento Actualizado con éxito');
     }
 
   

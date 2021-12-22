@@ -39,7 +39,7 @@ class ServicioController extends Controller
         $servicio = Servicio::create($request->all());
 
         return redirect()->route('servicios.index')
-            ->with('success', 'Servicio created successfully.');
+            ->with('success', 'Servicio creado con éxito.');
     }
 
    
@@ -64,7 +64,7 @@ class ServicioController extends Controller
         $servicio->update($request->all());
 
         return redirect()->route('servicios.index')
-            ->with('success', 'Servicio updated successfully');
+            ->with('success', 'Servicio Actualizado con éxito');
     }
 
    

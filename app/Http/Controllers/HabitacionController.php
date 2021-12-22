@@ -47,7 +47,7 @@ class HabitacionController extends Controller
         $habitacion = Habitacion::create($request->all());
 
         return redirect()->route('habitacions.index')
-            ->with('success', 'Habitacion created successfully.');
+            ->with('success', 'Habitacion creado con éxito.');
     }
 
   
@@ -74,7 +74,7 @@ class HabitacionController extends Controller
         $habitacion->update($request->all());
 
         return redirect()->route('habitacions.index')
-            ->with('success', 'Habitacion updated successfully');
+            ->with('success', 'Habitacion Actualizado con éxito');
     }
 
     
