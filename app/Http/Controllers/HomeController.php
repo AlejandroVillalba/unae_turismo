@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function home(){
-        $alojamientos = Alojamiento::all();
+        $alojamientos = Alojamiento::paginate(6);
 
 
     
