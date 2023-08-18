@@ -9,6 +9,7 @@
     <li>5 npm install</li>
     <li>6 npm run dev</li>
     <li>8 cree la base de datos</li>
-    <li>9 php artisan migrate</li>
+    <li>9 php artisan migrate --seed</li>
     <li>10 php artisan serve</li>
+    <li>Iniciar Sesión con el usuario: admin@admin.com contraseña: 12345678
 </P>
